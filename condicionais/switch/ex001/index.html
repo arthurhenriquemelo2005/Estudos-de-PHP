@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+</head>
+<body>
+    <form action="caso.php" method="post">
+
+        <h1>Calculadora</h1>
+        <label for="numero1">Informe um número:</label>
+        <input type="number" name="numero1" placeholder="informe um número" required>
+        <br>
+        <br>
+        <label for="numero2">Informe outro número:</label>
+        <input type="number" name="numero2" placeholder="informe outro número" required>
+        <br>
+
+        <input type="radio" name="operacao" value="1"  required>adição
+        <br>
+        <input type="radio" name="operacao"value="2" required> subtração
+        <br>
+        
+       <input type="radio" name="operacao" value="3" required> multiplicação
+        <br>
+        <input type="radio" name="operacao" value="4" required> divisão
+
+        <br><br>
+        
+    
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

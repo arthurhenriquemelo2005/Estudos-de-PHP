@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENAI Areias - Cadastro</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>
+            
+            <img src="assets/pessoa.svg" alt="Ícone Player" class="icon-title"> 
+            Novo Player
+        </h2>
+        
+        
+        <form id="formCadastro" action="index.php" method="POST">
+            
+            <label for="nome">Nickname / Nome:</label>
+            <div class="input-group">
+                <img src="../assets/estrela.svg" alt="Ícone Nome" class="icone-input">
+                <input type="text" id="nome" name="nome" placeholder="Digite seu Nickname">
+            </div>
+
+            <label for="email">E-mail de Login:</label>
+            <div class="input-group">
+                <img src="../assets/email.svg" alt="Ícone Email" class="icone-input">
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+            </div>
+
+            <button type="submit">
+                <img src="../assets/send.svg" alt="Ícone Enviar" class="icone-btn"> Start
+            </button>
+        </form>
+        <p id="mensagemErro" class="erro"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

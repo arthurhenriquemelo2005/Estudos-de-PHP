@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --fundo: #eaf0ee;
+    --cartao: #ffffff;
+    --texto: #16241f;
+    --texto-suave: #5b6b66;
+    --borda: #d3ddd9;
+    --campo: #f6f9f8;
+    --destaque: #0f766e;
+    --destaque-escuro: #0b5852;
+    --erro: #b42318;
+    --raio: 12px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(15, 118, 110, 0.12), transparent 45%),
+        var(--fundo);
+    color: var(--texto);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    background-color: var(--cartao);
+    padding: 44px 40px 40px;
+    border-radius: 20px;
+    border-top: 6px solid var(--destaque);
+    box-shadow:
+        0 1px 2px rgba(22, 36, 31, 0.06),
+        0 24px 48px -12px rgba(22, 36, 31, 0.18);
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+label {
+    display: block;
+    margin-top: 22px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--texto);
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--borda);
+    border-radius: var(--raio);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--texto);
+    background-color: var(--campo);
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+    color: #94a39e;
+}
+
+input:hover {
+    border-color: #b3c2bd;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--destaque);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.16);
+}
+
+/* Só mostra erro depois que a pessoa mexeu no campo */
+input:user-invalid {
+    border-color: var(--erro);
+    box-shadow: 0 0 0 4px rgba(180, 35, 24, 0.1);
+}
+
+input[type="submit"],
+button {
+    width: 100%;
+    margin-top: 28px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: var(--raio);
+    background: var(--destaque);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 16px -4px rgba(15, 118, 110, 0.55);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: var(--destaque-escuro);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px -6px rgba(15, 118, 110, 0.6);
+}
+
+input[type="submit"]:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--destaque);
+    outline-offset: 3px;
+}
+
+input[type="submit"]:active,
+button:active {
+    transform: scale(0.98);
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 22px;
+    color: var(--texto-suave);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.voltar:hover {
+    color: var(--destaque);
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 14px;
+    }
+
+    .container {
+        padding: 32px 22px 28px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

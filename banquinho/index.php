@@ -47,9 +47,9 @@ foreach ($alunos as $aluno){
 }
 
 if($ocorrencia){
-    echo "<p>Aluno(a) $buscaAluno econtrado</p>";
+    echo "<p><strong>Aluno(a) $buscaAluno econtrado</strong></p>";
 }else{
-    echo"<p>Aluno(a) $buscaAluno não encontrado</p>";
+    echo"<p><strong>Aluno(a) $buscaAluno não encontrado</strong></p>";
 }
 
 

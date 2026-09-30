@@ -14,7 +14,7 @@ $curso = trim($_POST['curso']);
 if (
     $nome === "" ||
     $email === "" ||
-    $idade === "" ||
+    $idade === "" ||    
     $curso === ""
 ) {
     die("Todos os campos são obrigatorios");

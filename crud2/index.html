@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de cadastro</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f7ff, #f5f7ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        form {
+            width: min(90vw, 900px);
+            max-width: 900px;
+            background: #ffffff;
+            padding: 42px 36px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f2937;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        form h2 {
+            text-align: center;
+            margin: 0 0 20px;
+            color: #1f2937;
+            font-size: 1.6rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 16px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 1.08rem;
+            margin-bottom: 22px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            outline: none;
+        }
+
+        .botoes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        input[type="submit"],
+        .btn-painel {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 22px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+        }
+
+        .btn-painel {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        input[type="submit"]:hover,
+        .btn-painel:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Cadastro de alunos</h1>
+
+    <section>
+        <form action="cadastrar.php" method="post">
+        
+            <h2>Cadastre-se</h2>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" placeholder="Informe seu nome" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <label for="cidade">Cidade:</label>
+            <input type="text" name="cidade" id="cidade" placeholder="Informe sua cidade" required>
+            <div class="botoes">
+                <input type="submit" value="Cadastrar">
+                <a class="btn-painel" href="painel.php">Painel principal</a>
+            </div>
+            <p id="mensagem" style="color: green;"></p>
+   
+        </form>
+        
+    </section>
+
+
+    <script>
+        const parametros = new URLSearchParams(window.location.search);
+
+        if (parametros.get('sucesso') === '1') {
+            document.getElementById('mensagem').textContent =
+                'Aluno cadastrado com sucesso!';
+        }
+
+
+    </script>
+</body>
+
+</html>

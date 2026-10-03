@@ -172,7 +172,10 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                             <div class="acoes">
                                                 <a href="editar.php?id=<?= $cliente['id'] ?>" class="btn-editar">Editar</a>
-                                                <a href="deletar.php?id=<?= $cliente['id'] ?>" class="btn-excluir">Excluir</a>
+                                                <form action="deletar.php" method="post" style="display:inline; margin:0;">
+                                                    <input type="hidden" name="id" value="<?= htmlspecialchars($cliente['id']) ?>">
+                                                    <button type="submit" class="btn-excluir" onclick="return confirm('Confirma exclusão deste cliente?')">Excluir</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>

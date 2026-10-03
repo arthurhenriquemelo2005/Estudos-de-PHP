@@ -29,20 +29,22 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 100%);
             min-height: 100vh;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: #0f172a;
         }
 
         .clientes-wrapper {
-            padding: 40px 20px;
+            padding: 48px 18px;
         }
 
         .card {
             border: 0;
-            border-radius: 20px;
-            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            border-radius: 22px;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.10);
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.96);
         }
 
         .card-header {
@@ -52,29 +54,85 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             padding: 20px 24px;
         }
 
+        .card-header .btn-light {
+            border-radius: 12px;
+            font-weight: 600;
+            padding: 0.7rem 1rem;
+        }
+
+        .table-responsive {
+            border-radius: 0 0 22px 22px;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
         .table thead th {
             background: #eff6ff;
             color: #1e3a8a;
             font-weight: 700;
             border-bottom: 0;
+            padding: 16px 14px;
+            letter-spacing: 0.02em;
         }
 
-        .table td,
-        .table th {
+        .table tbody td {
+            padding: 16px 14px;
+            border-color: #edf2f7;
             vertical-align: middle;
-            padding: 14px 12px;
+        }
+
+        .table tbody tr:hover {
+            background: #f8fbff;
         }
 
         .status-badge {
             display: inline-block;
-            padding: 0.4rem 0.7rem;
+            padding: 0.45rem 0.7rem;
             border-radius: 999px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             background: #dcfce7;
             color: #166534;
+        }
+
+        .acoes {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-editar,
+        .btn-excluir {
+            border-radius: 10px;
+            padding: 0.45rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .btn-editar {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .btn-editar:hover {
+            background: #bfdbfe;
+            color: #1e3a8a;
+        }
+
+        .btn-excluir {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .btn-excluir:hover {
+            background: #fecaca;
+            color: #991b1b;
         }
     </style>
 </head>
@@ -109,9 +167,17 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <td><?= htmlspecialchars($cliente['email']) ?></td>
                                     <td><?= htmlspecialchars($cliente['telefone']) ?></td>
                                     <td>
-                                        <span class="status-badge"><?= htmlspecialchars($cliente['status']) ?></span>
+                                        <div class="d-flex align-items-center justify-content-between gap-3">
+                                            <span class="status-badge"><?= htmlspecialchars($cliente['status']) ?></span>
+
+                                            <div class="acoes">
+                                                <a href="editar.php?id=<?= $cliente['id'] ?>" class="btn-editar">Editar</a>
+                                                <a href="deletar.php?id=<?= $cliente['id'] ?>" class="btn-excluir">Excluir</a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
+                                
                             <?php endforeach; ?>
                         </tbody>
                     </table>

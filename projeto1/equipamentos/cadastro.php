@@ -246,7 +246,8 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
                 <div class="form-full actions">
-                    <a class="btn btn-secondary">Cancelar</a>
+                 
+                    <a href="index.php" class="btn btn-secondary">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
 

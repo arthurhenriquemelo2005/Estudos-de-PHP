@@ -102,6 +102,24 @@ if (!$cliente) {
         .btn-primary:hover {
             box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
         }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+            color: #0f172a;
+        }
     </style>
 </head>
 
@@ -173,7 +191,8 @@ if (!$cliente) {
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-end mt-4">
+                    <div class="d-flex justify-content-end mt-4 gap-2">
+                        <a href="index.php" class="btn btn-secondary">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Atualizar</button>
                     </div>
                 </form>

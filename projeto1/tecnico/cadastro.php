@@ -111,13 +111,17 @@ if (!isset($_SESSION['usuario_id'])) {
         }
 
         .btn-secondary {
-            background: #e2e8f0;
+            background: #ffffff;
             color: #1e293b;
-            border: none;
+            border: 1px solid #dbeafe;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-secondary:hover {
-            background: #cbd5e1;
+            background: #f8fafc;
             color: #0f172a;
         }
     </style>
@@ -194,6 +198,7 @@ if (!isset($_SESSION['usuario_id'])) {
                     </div>
 
                     <div class="col-12 d-flex justify-content-end gap-2 mt-4">
+                    
                         <a href="index.php" class="btn btn-secondary">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>

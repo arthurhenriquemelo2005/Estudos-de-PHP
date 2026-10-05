@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -114,6 +118,13 @@
                     <h2 class="login-title fw-bold">Login</h2>
                     <p class="login-subtitle">Acesse sua conta</p>
                 </div>
+
+                <?php if (isset($_SESSION['erro_login'])): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= htmlspecialchars($_SESSION['erro_login']) ?>
+                    </div>
+                    <?php unset($_SESSION['erro_login']); ?>
+                <?php endif; ?>
 
                 <form action="autenticar.php" method="post">
                     <div class="mb-3">

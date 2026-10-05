@@ -87,9 +87,10 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         .form-full{grid-column:1 / -1}
         .actions{display:flex; gap:12px; justify-content:flex-end}
 
-        .btn{padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer}
+        .btn{padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; justify-content:center}
         .btn-primary{background:linear-gradient(135deg,var(--card-header-start),var(--card-header-end)); color:#fff; border:0}
-        .btn-secondary{background:#f3f4f6; color:var(--text); border:1px solid rgba(0,0,0,0.04)}
+        .btn-secondary{background:#ffffff; color:var(--text); border:1px solid #dbeafe}
+        .btn-secondary:hover{background:#f8fafc; color:var(--text)}
 
         @media (max-width:860px){form{grid-template-columns:1fr} .actions{flex-direction:column-reverse}}
     </style>
@@ -165,6 +166,7 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <div class="form-full actions">
+                    
                     <a href="index.php" class="btn btn-secondary">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Atualizar</button>
                 </div>

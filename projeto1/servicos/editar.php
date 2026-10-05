@@ -670,6 +670,13 @@ $tecnicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <div class="d-flex gap-2 mt-4">
 
+                    <a
+                        href="../login/painel.php"
+                        class="btn btn-secondary"
+                    >
+                        Voltar
+                    </a>
+
                     <button
                         type="submit"
                         class="btn btn-primary"

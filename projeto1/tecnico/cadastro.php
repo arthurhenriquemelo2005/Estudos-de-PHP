@@ -1,12 +1,12 @@
-<?php 
+<?php
 
-    session_start();
-    require "../conexao/conexao.php";
+session_start();
+require "../conexao/conexao.php";
 
-    if(!isset($_SESSION['usuario_id'])){
-        header("Location:login.php");
-        exit;
-    }
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location:login.php");
+    exit;
+}
 
 
 ?>
@@ -67,6 +67,7 @@
             background: #f8fbff;
             padding: 0.8rem 0.9rem;
             transition: 0.2s ease;
+            width: 100%;
         }
 
         .form-control:focus,
@@ -75,6 +76,16 @@
             border-color: #60a5fa;
             box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.15);
             background: white;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, #2563eb 50%),
+                linear-gradient(135deg, #2563eb 50%, transparent 50%);
+            background-position: calc(100% - 20px) calc(1.2em + 2px), calc(100% - 14px) calc(1.2em + 2px);
+            background-size: 6px 6px, 6px 6px;
+            background-repeat: no-repeat;
+            padding-right: 2.75rem;
         }
 
         textarea.form-control {
@@ -141,9 +152,17 @@
                         <input type="text" class="form-control" name="telefone">
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-12">
                         <label class="form-label">Especialidade</label>
-                        <input type="text" class="form-control" name="especialidade">
+                        <select class="form-select" name="especialidade" required>
+                            <option value="">Selecione</option>
+                            <option value="HARDWARE">Hardware</option>
+                            <option value="SOFTWARE">Software</option>
+                            <option value="REDES">Redes</option>
+                            <option value="SUPORTE_TECNICO">Suporte Técnico</option>
+                            <option value="BANCO_DE_DADOS">Banco de Dados</option>
+                            <option value="SEGURANCA">Segurança</option>
+                        </select>
                     </div>
 
                     <div class="col-md-3">

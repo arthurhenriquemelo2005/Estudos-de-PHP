@@ -151,7 +151,10 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h1 class="h3 mb-0 fw-bold">Técnicos</h1>
-                <a href="cadastro.php" class="btn btn-light fw-semibold">Novo técnico</a>
+                <div class="d-flex gap-2">
+                    <a href="../login/painel.php" class="btn btn-light fw-semibold">Voltar</a>
+                    <a href="cadastro.php" class="btn btn-light fw-semibold">Novo técnico</a>
+                </div>
             </div>
 
             <div class="card-body p-0">

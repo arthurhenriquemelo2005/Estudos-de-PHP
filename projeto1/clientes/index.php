@@ -142,7 +142,10 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h1 class="h3 mb-0 fw-bold">Clientes</h1>
-                <a href="cadastrar.php" class="btn btn-light fw-semibold">Novo cliente</a>
+                <div class="d-flex gap-2">
+                    <a href="../login/painel.php" class="btn btn-light fw-semibold">Voltar</a>
+                    <a href="cadastrar.php" class="btn btn-light fw-semibold">Novo cliente</a>
+                </div>
             </div>
 
             <div class="card-body p-0">

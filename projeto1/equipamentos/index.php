@@ -79,7 +79,10 @@ $equipamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="card">
             <div class="card-header">
                 <h1>Equipamentos</h1>
-                <a href="cadastrar.php" class="btn btn-primary">Novo equipamento</a>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <a href="../login/painel.php" class="btn btn-secondary small">Voltar</a>
+                    <a href="cadastrar.php" class="btn btn-primary">Novo equipamento</a>
+                </div>
             </div>
 
             <div class="card-body">

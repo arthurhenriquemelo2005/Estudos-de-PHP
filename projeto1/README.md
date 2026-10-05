@@ -1,83 +1,72 @@
-#  Sistema de Assistência Técnica
+# 🛠️ Sistema de Assistência Técnica
 
-Sistema web desenvolvido para uma empresa de assistência técnica de informática, com o objetivo de centralizar e organizar o gerenciamento de **clientes, equipamentos e serviços de manutenção**.
+Sistema web desenvolvido para uma empresa de assistência técnica de informática, criado com o objetivo de substituir o controle manual de clientes, equipamentos, técnicos e serviços de manutenção por uma solução centralizada e organizada.
 
-##  Sobre o projeto
+##  Contexto
 
-O projeto surgiu a partir da necessidade de substituir parte do controle manual utilizado pela empresa.
+O projeto foi desenvolvido a partir de um cenário em que o controle das informações de uma assistência técnica era realizado de forma manual e descentralizada.
 
-Com informações espalhadas e sem um sistema centralizado, o acompanhamento dos clientes, equipamentos recebidos e serviços de manutenção pode se tornar mais difícil, aumentando o risco de erros, perda de informações, atrasos e retrabalho.
+Dados de clientes, equipamentos recebidos e serviços realizados podiam ficar espalhados em diferentes registros, tornando o acompanhamento dos atendimentos mais trabalhoso e aumentando a possibilidade de erros, perda de informações e retrabalho.
 
-A proposta do sistema é reunir essas informações em um único ambiente, permitindo que a equipe tenha maior controle sobre os atendimentos e consiga acompanhar o andamento de cada serviço.
+A partir desse problema, surgiu a necessidade de desenvolver uma aplicação capaz de centralizar essas informações e facilitar o gerenciamento dos atendimentos.
 
-##  Problema
+---
 
-O controle manual pode gerar diversos problemas no dia a dia, como:
+##  O problema
 
-- Informações anotadas incorretamente ou esquecidas;
-- Dificuldade para localizar dados de clientes;
-- Falta de controle sobre os equipamentos recebidos;
-- Dificuldade para acompanhar serviços de manutenção;
-- Perda de tempo procurando informações;
-- Dificuldade para consultar o histórico de atendimentos;
-- Falta de acompanhamento adequado do andamento dos serviços;
-- Possibilidade de atrasos e retrabalhos;
-- Falta de controle sobre quem pode acessar ou alterar determinadas informações.
+O controle manual apresentava algumas dificuldades para a rotina da empresa:
 
-Além disso, a ausência de controle de acesso pode comprometer a privacidade dos clientes e dificultar a identificação dos responsáveis pelas alterações realizadas no sistema.
+- Dificuldade para localizar informações dos clientes;
+- Falta de organização dos equipamentos recebidos;
+- Dificuldade para acompanhar o andamento dos serviços;
+- Falta de centralização das informações;
+- Possibilidade de perda ou preenchimento incorreto de dados;
+- Dificuldade para consultar informações de atendimentos;
+- Falta de controle sobre quem poderia acessar determinadas informações.
 
-##  Solução
+Além disso, conforme a quantidade de clientes e serviços aumenta, manter essas informações manualmente se torna cada vez mais difícil de administrar.
 
-O sistema está sendo desenvolvido para centralizar as informações da assistência técnica e facilitar o gerenciamento dos atendimentos.
+---
 
-A aplicação busca permitir o controle de:
+##  A solução
 
--  Clientes;
--  Equipamentos;
--  Serviços de manutenção;
--  Atendimentos;
--  Andamento dos serviços;
--  Acesso dos usuários;
--  Histórico das informações.
+Para solucionar esse problema, foi desenvolvido um sistema web capaz de centralizar as principais informações da assistência técnica em um único ambiente.
 
-Com isso, a equipe poderá consultar as informações de forma mais organizada e acompanhar cada serviço desde a entrada do equipamento até a conclusão do atendimento.
+A aplicação permite que os usuários autenticados possam:
 
-##  Controle de acesso
+- Cadastrar e gerenciar clientes;
+- Cadastrar e gerenciar equipamentos;
+- Cadastrar e gerenciar técnicos;
+- Criar e acompanhar ordens de serviço;
+- Relacionar equipamentos aos seus respectivos clientes;
+- Relacionar ordens de serviço aos clientes, equipamentos e técnicos;
+- Atualizar informações dos atendimentos;
+- Controlar o acesso ao sistema através de autenticação e perfis de usuário.
 
-O sistema possui controle de acesso para organizar quais usuários podem consultar ou alterar determinadas informações.
+Dessa forma, o sistema transforma um processo anteriormente descentralizado em um fluxo digital organizado.
 
-A utilização de diferentes níveis de acesso contribui para:
+---
 
-- Restringir informações conforme a função do usuário;
-- Proteger os dados dos clientes;
-- Evitar alterações indevidas;
-- Identificar os responsáveis pelas ações realizadas no sistema.
+## Como o sistema funciona
 
-##  Objetivos do projeto
+O funcionamento da aplicação é baseado no relacionamento entre as principais entidades do sistema:
 
-- Centralizar as informações da assistência técnica;
-- Melhorar a organização dos atendimentos;
-- Facilitar o acompanhamento dos equipamentos;
-- Reduzir erros no controle das informações;
-- Facilitar a consulta ao histórico de serviços;
-- Organizar o acesso às informações;
-- Melhorar o acompanhamento dos serviços de manutenção.
-
-## 🛠️ Tecnologias
-
-- PHP
-- MySQL
-- HTML
-- CSS
-- Git e GitHub
-- XAMP  
-
-##  Objetivo acadêmico
-
-Este projeto está sendo desenvolvido como parte dos estudos de **Desenvolvimento de Sistemas**, colocando em prática conceitos de desenvolvimento web, banco de dados, autenticação, controle de acesso e operações CRUD.
-
-##  Status
-
-🚧 **Em desenvolvimento**
-
-Novas funcionalidades e melhorias serão adicionadas conforme o desenvolvimento do projeto.
+```text
+                         SISTEMA
+                            │
+                     ┌──────┴──────┐
+                     │             │
+                  USUÁRIOS       PAINEL
+                     │             │
+                     │      ┌──────┼──────────┐
+                     │      │      │          │
+                     ↓      ↓      ↓          ↓
+                 ACESSO  CLIENTES EQUIPAMENTOS TÉCNICOS
+                                  │
+                                  │
+                                  ↓
+                         ORDENS DE SERVIÇO
+                                  │
+                    ┌─────────────┼─────────────┐
+                    ↓             ↓             ↓
+                 CLIENTE      EQUIPAMENTO     TÉCNICO

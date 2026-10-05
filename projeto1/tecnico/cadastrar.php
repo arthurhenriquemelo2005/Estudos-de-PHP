@@ -5,12 +5,12 @@ require "../conexao/conexao.php";
 
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Locatio:login.php");
+    header("Location: ../login/login.php");
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Locatio:cadastro.php");
+    header("Location: cadastro.php");
     exit;
 }
 
@@ -59,3 +59,6 @@ $stmt->execute([
     ":status" => $status,
     ":observacao" => $observacao
 ]);
+
+header("Location: index.php");
+exit;

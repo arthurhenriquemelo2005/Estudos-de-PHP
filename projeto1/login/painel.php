@@ -7,10 +7,8 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-if ($_SESSION['perfil'] !== 'ADMIN') {
-    header("Location: painel.php");
-    exit;
-}
+$nome = $_SESSION['nome'];
+$perfil = $_SESSION['perfil'];
 
 ?>
 
@@ -18,135 +16,202 @@ if ($_SESSION['perfil'] !== 'ADMIN') {
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Painel - Assistência Técnica</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e0f2fe 100%);
+            margin: 0;
             min-height: 100vh;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             color: #0f172a;
         }
 
-        .panel-wrapper {
-            min-height: 100vh;
+        .topbar {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            color: #fff;
+            padding: 24px 32px;
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.18);
+        }
+
+        .topbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            padding: 32px 16px;
+            gap: 16px;
         }
 
-        .panel-card {
-            width: 100%;
-            max-width: 760px;
-            border: 0;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
-            overflow: hidden;
-        }
-
-        .panel-header {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            padding: 28px 30px;
-        }
-
-        .panel-body {
-            padding: 30px;
-        }
-
-        .badge-perfil {
-            font-size: 0.82rem;
+        .brand {
+            font-size: clamp(1.5rem, 2vw, 2rem);
             font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.55rem 0.85rem;
-            border-radius: 999px;
-            background: #dbeafe;
-            color: #1d4ed8;
+            margin: 0;
         }
 
-        .info-box {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 16px 18px;
+        .usuario {
+            text-align: right;
+            font-size: 0.96rem;
+        }
+
+        .usuario p {
+            margin: 0 0 4px;
+            font-weight: 600;
+        }
+
+        .usuario small {
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 56px;
+        }
+
+        .boas-vindas {
+            margin-bottom: 28px;
+        }
+
+        .boas-vindas h2 {
+            margin: 0 0 8px;
+            color: #1e293b;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+        }
+
+        .boas-vindas p {
+            margin: 0;
+            color: #475569;
+            font-size: 1rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            display: block;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 20px;
+            padding: 28px 22px;
+            text-decoration: none;
+            color: #1e293b;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 44px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
+            color: #1e293b;
+        }
+
+        .icone {
+            font-size: 2.5rem;
             margin-bottom: 18px;
         }
 
-        .info-label {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            margin: 0;
             color: #64748b;
-            margin-bottom: 6px;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
-        .admin-box {
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-            border: 1px solid #bfdbfe;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 18px;
+        .actions {
+            margin-top: 30px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            border: none;
+        .sair {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #fff;
             border-radius: 12px;
-            padding: 0.75rem 1.25rem;
+            text-decoration: none;
             font-weight: 600;
+            box-shadow: 0 14px 28px rgba(220, 38, 38, 0.18);
+            transition: 0.2s ease;
         }
 
-        .btn-outline-danger {
-            border-radius: 12px;
-            font-weight: 600;
-            padding: 0.75rem 1.25rem;
+        .sair:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: #fff;
+            text-decoration: none;
         }
     </style>
+
 </head>
 
 <body>
-    <div class="panel-wrapper">
-        <div class="panel-card">
-            <div class="panel-header">
-                <h1 class="mb-0 fw-bold">Painel do Sistema</h1>
-            </div>
 
-            <div class="panel-body">
-                <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-                    <div>
-                        <span class="info-label">Usuário</span>
-                        <h3 class="mb-0"><?= htmlspecialchars($_SESSION['nome']) ?></h3>
-                    </div>
-                    <span class="badge-perfil"><?= htmlspecialchars($_SESSION['perfil']) ?></span>
-                </div>
+<header class="topbar">
+    <div class="topbar-inner">
+        <h1 class="brand">Assistência Técnica</h1>
 
-                <div class="info-box">
-                    <span class="info-label">Status da conta</span>
-                    <p class="mb-0">Sessão ativa e autorizada</p>
-                </div>
-
-                <?php if ($_SESSION['perfil'] === 'ADMIN'): ?>
-                    <div class="admin-box">
-                        <h4 class="mb-3">Área administrativa</h4>
-                        <a href="usuarios/index.php" class="btn btn-primary">Gerenciar usuários</a>
-                    </div>
-                <?php endif; ?>
-
-                <div class="mt-4 d-flex justify-content-end">
-                    <a href="logout.php" class="btn btn-outline-danger">Sair</a>
-                </div>
-            </div>
+        <div class="usuario">
+            <p>Olá, <strong><?= htmlspecialchars($nome) ?></strong></p>
+            <small>Perfil: <?= htmlspecialchars($perfil) ?></small>
         </div>
     </div>
+</header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<main>
+    <div class="boas-vindas">
+        <h2>Painel de Controle</h2>
+        <p>Selecione uma opção para gerenciar o sistema.</p>
+    </div>
+
+    <div class="cards">
+        <a href="../clientes/index.php" class="card">
+            <div class="icone">👤</div>
+            <h3>Clientes</h3>
+            <p>Cadastre e gerencie os clientes da assistência.</p>
+        </a>
+
+        <a href="../equipamentos/index.php" class="card">
+            <div class="icone">💻</div>
+            <h3>Equipamentos</h3>
+            <p>Gerencie os equipamentos dos clientes.</p>
+        </a>
+
+        <a href="../tecnico/index.php" class="card">
+            <div class="icone">🔧</div>
+            <h3>Técnicos</h3>
+            <p>Cadastre e gerencie os técnicos.</p>
+        </a>
+
+        <a href="../servicos/index.php" class="card">
+            <div class="icone">🛠️</div>
+            <h3>Ordens de Serviço</h3>
+            <p>Crie e acompanhe as ordens de serviço.</p>
+        </a>
+    </div>
+
+    <div class="actions">
+        <a href="logout.php" class="sair">Sair</a>
+    </div>
+</main>
+
 </body>
 
 </html>

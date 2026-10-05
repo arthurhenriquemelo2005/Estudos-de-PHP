@@ -47,26 +47,4 @@ Dessa forma, o sistema transforma um processo anteriormente descentralizado em u
 
 ---
 
-## Como o sistema funciona
 
-O funcionamento da aplicação é baseado no relacionamento entre as principais entidades do sistema:
-
-```text
-                         SISTEMA
-                            │
-                     ┌──────┴──────┐
-                     │             │
-                  USUÁRIOS       PAINEL
-                     │             │
-                     │      ┌──────┼──────────┐
-                     │      │      │          │
-                     ↓      ↓      ↓          ↓
-                 ACESSO  CLIENTES EQUIPAMENTOS TÉCNICOS
-                                  │
-                                  │
-                                  ↓
-                         ORDENS DE SERVIÇO
-                                  │
-                    ┌─────────────┼─────────────┐
-                    ↓             ↓             ↓
-                 CLIENTE      EQUIPAMENTO     TÉCNICO

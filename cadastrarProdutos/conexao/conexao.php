@@ -3,7 +3,7 @@
 $servidor = 'localhost';
 $banco = 'produto';
 $usuario = 'root';
-$senha = '';
+$senha = 'admin';
 
 try{
     $pdo = new  PDO("mysql:host=$servidor;dbname=$banco;charset=utf8mb4",$usuario,$senha);

@@ -21,6 +21,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos Cadastrados</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         :root {
             --primary: #2563eb;
@@ -97,6 +98,32 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             border-color: var(--primary-dark);
         }
 
+        .btn-warning {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-color: #2563eb;
+            color: #fff;
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-color: #1d4ed8;
+            color: #fff;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #f87171, #dc2626);
+            border-color: #dc2626;
+            color: #fff;
+            box-shadow: 0 8px 18px rgba(220, 38, 38, 0.2);
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border-color: #b91c1c;
+            color: #fff;
+        }
+
         .text-primary {
             color: var(--primary-dark) !important;
         }
@@ -118,6 +145,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <th>Preço</th>
                                 <th>Quantidade</th>
                                 <th>Categoria</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,6 +155,14 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <td>R$ <?= htmlspecialchars($produto['preco']) ?></td>
                                     <td><?= htmlspecialchars($produto['quantidade']) ?></td>
                                     <td><?= htmlspecialchars($produto['categoria']) ?></td>
+                                    <td>
+                                        <a href="../editarProduto/editar.php?id=<?= htmlspecialchars($produto['id']) ?>" class="btn btn-warning btn-sm me-2" title="Editar" aria-label="Editar">
+                                            <i class="bi bi-pencil-square"></i> Editar
+                                        </a>
+                                        <a href="../deletar.php?id=<?= htmlspecialchars($produto['id']) ?>" class="btn btn-danger btn-sm" title="Excluir" aria-label="Excluir">
+                                            <i class="bi bi-trash"></i> Excluir
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

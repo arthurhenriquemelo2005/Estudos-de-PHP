@@ -1,13 +1,7 @@
 <?php
 
-session_start();
+
 require __DIR__ . '/../conexao/conexao.php';
-
-
-if(!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== true){
-    header("Location: ../telaCadastro/cadastro.php");
-    exit();
-}
 
 
 $sql = "SELECT * FROM produtos ORDER BY id DESC";
@@ -176,7 +170,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="d-grid gap-2">
                 <a class="btn btn-primary w-100" href="../telaCadastro/cadastro.php">Voltar para cadastro</a>
             </div>
-                <a class="btn btn-outline-secondary w-100" href="../sair.php">Sair</a>
+               
             </div>
         </div>
     </div>

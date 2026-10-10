@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 require __DIR__ . '/../conexao/conexao.php';
 
 $nome = $_POST['nome'] ?? '';
@@ -24,7 +24,7 @@ $stmt->execute([
     ':categoria' => $categoria
 ]);
 
-$_SESSION['usuario_logado'] = true;
+
 
 header('Location: ../produtosCadastrados/index.php');
 exit;

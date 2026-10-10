@@ -111,7 +111,7 @@
     </style>
 </head>
 <body>
-    <form action="/../editarProduto/editar.php" method="POST">
+    <form action="/../editarProduto/atualizar.php" method="POST">
         <h1>Editar Produto</h1>
 
         <div class="form-group">

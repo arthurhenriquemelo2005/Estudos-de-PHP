@@ -1,5 +1,7 @@
 <?php 
-
+    
+   
+    
 $servidor = 'localhost';
 $banco = 'produto';
 $usuario = 'root';

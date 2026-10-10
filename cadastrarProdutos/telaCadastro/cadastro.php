@@ -112,8 +112,8 @@
 
             <form action="../cadastrarProduto/cadastrar.php" method="POST">
                 <div class="mb-3">
-                    <label for="nome" class="form-label fw-bold">Nome:</label>
-                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do produto" required>
+                    <label for="nome" class="form-label fw-bold">Nome do produto:</label>
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Produto" required>
                 </div>
 
                 <div class="mb-3">

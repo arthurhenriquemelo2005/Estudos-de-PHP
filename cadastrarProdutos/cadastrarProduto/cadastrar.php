@@ -1,10 +1,6 @@
 <?php
 
-if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../telaCadastro/cadastro.html');
-    exit;
-}
-
+session_start();
 require __DIR__ . '/../conexao/conexao.php';
 
 $nome = $_POST['nome'] ?? '';
@@ -13,7 +9,7 @@ $quantidade = $_POST['quantidade'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
 
 if ($nome === '' || $preco === '' || $quantidade === '' || $categoria === '') {
-    header('Location: ../telaCadastro/cadastro.html');
+    header('Location: ../telaCadastro/cadastro.php');
     exit;
 }
 
@@ -27,6 +23,8 @@ $stmt->execute([
     ':quantidade' => $quantidade,
     ':categoria' => $categoria
 ]);
+
+$_SESSION['usuario_logado'] = true;
 
 header('Location: ../produtosCadastrados/index.php');
 exit;

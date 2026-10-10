@@ -3,10 +3,12 @@
 session_start();
 require __DIR__ . '/../conexao/conexao.php';
 
-if (!isset($_SERVER['REQUEST_METHOD']) || ($_SERVER['REQUEST_METHOD'] !== 'GET' && $_SERVER['REQUEST_METHOD'] !== 'POST')) {
-    header('Location: ../telaCadastro/cadastro.html');
-    exit;
+
+if(!isset($_SESSION['usuario_logado']) || $_SESSION['usuario_logado'] !== true){
+    header("Location: ../telaCadastro/cadastro.php");
+    exit();
 }
+
 
 $sql = "SELECT * FROM produtos ORDER BY id DESC";
 $stmt = $pdo->prepare($sql);
@@ -170,7 +172,12 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             <?php endif; ?>
 
-            <a class="btn btn-primary w-100" href="../telaCadastro/cadastro.html">Voltar para cadastro</a>
+            <div class="d-grid gap-2">
+                <div class="d-grid gap-2">
+                <a class="btn btn-primary w-100" href="../telaCadastro/cadastro.php">Voltar para cadastro</a>
+            </div>
+                <a class="btn btn-outline-secondary w-100" href="../sair.php">Sair</a>
+            </div>
         </div>
     </div>
 

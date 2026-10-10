@@ -3,6 +3,12 @@
 
 require __DIR__ . '/../conexao/conexao.php';
 
+session_start();
+
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: ../login/login.php');
+    exit;
+}
 
 $sql = "SELECT * FROM produtos ORDER BY id DESC";
 $stmt = $pdo->prepare($sql);

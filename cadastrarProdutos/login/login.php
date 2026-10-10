@@ -146,11 +146,27 @@
         }
 
         .alert-message {
+            display: none;
             min-height: 24px;
             margin-top: 1rem;
             font-size: 0.92rem;
-            color: var(--success);
             font-weight: 600;
+            border-radius: 12px;
+            padding: 0.7rem 0.9rem;
+        }
+
+        .alert-message.success {
+            display: block;
+            color: var(--success);
+            background-color: rgba(25, 135, 84, 0.1);
+            border: 1px solid rgba(25, 135, 84, 0.2);
+        }
+
+        .alert-message.error {
+            display: block;
+            color: #b42318;
+            background-color: rgba(220, 53, 69, 0.08);
+            border: 1px solid rgba(220, 53, 69, 0.18);
         }
     </style>
 </head>
@@ -163,7 +179,7 @@
         <h1 class="text-center">Bem-vindo</h1>
         <p class="subtitle text-center">Acesse o painel para gerenciar seus produtos.</p>
 
-        <form action="../produtosCadastrados/index.php" method="POST">
+        <form action="autenticar.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@empresa.com" required>
@@ -187,9 +203,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const parametros = new URLSearchParams(window.location.search);
+        const mensagem = document.getElementById('mensagem');
 
         if (parametros.get('sucesso') === '1') {
-            document.getElementById('mensagem').textContent = 'Login realizado com sucesso!';
+            mensagem.textContent = 'Login realizado com sucesso!';
+            mensagem.className = 'alert-message success text-center';
+        }
+
+        if (parametros.get('erro') === '1') {
+            mensagem.textContent = 'E-mail ou senha incorretos. Tente novamente.';
+            mensagem.className = 'alert-message error text-center';
         }
     </script>
 </body>

@@ -1,6 +1,16 @@
 <?php
 
 
+
+session_start();
+
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: ../login/login.php');
+    exit;
+}
+
+
+
 require __DIR__ . '/../conexao/conexao.php';
 
 $nome = $_POST['nome'] ?? '';

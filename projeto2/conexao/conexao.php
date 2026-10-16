@@ -3,7 +3,7 @@
     $servidor = 'localhost';
     $banco = 'ecopoint';
     $usuario = 'root';
-    $senha = 'admin';
+    $senha = '';
 
     try{
 

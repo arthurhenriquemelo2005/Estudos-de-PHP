@@ -1,33 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../conexao/conexao.php';
-
-$erro = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
-    $senha = $_POST['senha'] ?? '';
-
-    if ($email !== '' && $senha !== '') {
-        $sql = "SELECT * FROM Usuario WHERE email = :email LIMIT 1";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['email' => $email]);
-        $usuario = $stmt->fetch();
-
-        if ($usuario && password_verify($senha, $usuario['senha_hash'])) {
-            $_SESSION['usuario_id'] = $usuario['id_usuario'];
-            $_SESSION['usuario_nome'] = $usuario['nome'];
-            $_SESSION['usuario_perfil'] = $usuario['perfil'];
-
-            header('Location: ../painel.php');
-            exit;
-        }
-
-        $erro = 'Email ou senha inválidos.';
-    } else {
-        $erro = 'Preencha email e senha.';
-    }
-}
+$erro = $_SESSION['erro_login'] ?? '';
+unset($_SESSION['erro_login']);
 ?>
 
 <!DOCTYPE html>
@@ -202,7 +176,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <h2>Entrar</h2>
                         <p class="text-muted-soft mb-0">Acesse sua conta</p>
                     </div>
-                    <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill">online</span>
+                   
                 </div>
 
                 <?php if (!empty($erro)): ?>
@@ -211,7 +185,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 <?php endif; ?>
 
-                <form method="POST" action="painel.php">
+                <div id="erroLogin" class="alert alert-danger d-none" role="alert"></div>
+
+                <form id="formLogin" method="POST" action="autenticar/autenticar.php">
                     <div class="mb-3">
                         <label for="email" class="form-label fw-semibold">E-mail</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@exemplo.com" required>
@@ -222,27 +198,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
                     </div>
 
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="lembrar">
-                            <label class="form-check-label text-muted-soft" for="lembrar">
-                                Lembrar-me
-                            </label>
-                        </div>
-                        <a href="#" class="link-green">Esqueci a senha</a>
-                    </div>
-
                     <button type="submit" class="btn btn-eco w-100 text-white">Entrar</button>
                 </form>
 
                 <div class="text-center mt-4">
                     <span class="text-muted-soft">Ainda não tem conta?</span>
-                    <a href="#" class="link-green ms-1">Cadastre-se</a>
+                    <a href="cadastro/telacadastro.php" class="link-green ms-1">Cadastre-se</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   
 </body>
 </html>

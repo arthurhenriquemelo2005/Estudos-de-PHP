@@ -35,11 +35,13 @@ if ($busca !== '') {
         AND (
             u.nome LIKE :nome
             OR u.email LIKE :email
+            OR p.telefone LIKE :telefone
         )
     ";
 
     $params['nome'] = "%{$busca}%";
     $params['email'] = "%{$busca}%";
+    $params['telefone'] = "%{$busca}%";
 }
 
 $sql .= " ORDER BY p.data_cadastro DESC";

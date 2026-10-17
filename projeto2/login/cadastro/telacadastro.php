@@ -388,7 +388,7 @@
 
                         <p class="login-note text-center mt-4 mb-2">
                             Já tem uma conta?
-                            <a href="login.php">Entrar</a>
+                            <a href="../login.php">Entrar</a>
                         </p>
 
                         <p class="privacy-note text-center mb-0">

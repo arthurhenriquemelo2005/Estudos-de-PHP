@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -196,6 +195,24 @@ function escapar($valor)
                                         'd/m/Y',
                                         strtotime($participante['data_cadastro'])
                                     ) ?>
+                                    <td>
+    <div class="action-buttons">
+
+        <a
+            href="editar.php?id=<?= (int) $participante['id_participante'] ?>"
+            class="btn-edit">
+            Editar
+        </a>
+
+        <a
+            href="excluir.php?id=<?= (int) $participante['id_participante'] ?>"
+            class="btn-delete"
+            onclick="return confirm('Tem certeza que deseja excluir este participante?')">
+            Excluir
+        </a>
+
+    </div>
+</td>
                                 </td>
                             </tr>
 
@@ -241,3 +258,5 @@ function escapar($valor)
 </body>
 </html>
 ```
+
+adicione um botão de editar e deletar na lista dos participantes

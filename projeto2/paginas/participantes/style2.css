@@ -1,0 +1,353 @@
+
+:root {
+    --eco-green: #15803d;
+    --eco-green-dark: #14532d;
+    --eco-teal: #0f766e;
+    --eco-text: #172b22;
+    --eco-muted: #64756b;
+    --eco-border: #e1ebe3;
+    --eco-background: #f5f9f5;
+    --eco-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(34, 197, 94, 0.08),
+            transparent 35%
+        ),
+        var(--eco-background);
+    color: var(--eco-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BARRA SUPERIOR
+========================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 5%;
+    background: var(--eco-white);
+    border-bottom: 1px solid var(--eco-border);
+    box-shadow: 0 4px 20px rgba(20, 83, 45, 0.04);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--eco-green-dark);
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.brand:hover {
+    color: var(--eco-green);
+}
+
+.brand-mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.8rem;
+    background: linear-gradient(
+        135deg,
+        var(--eco-green),
+        var(--eco-teal)
+    );
+    color: var(--eco-white);
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--eco-muted);
+    font-size: 0.9rem;
+}
+
+.btn-sair {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--eco-border);
+    border-radius: 0.7rem;
+    color: var(--eco-green-dark);
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-sair:hover {
+    background: #edf8ef;
+    border-color: #b8dfc0;
+}
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
+
+.page-content {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem;
+    flex: 1;
+}
+
+.page-heading {
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 0.65rem;
+    color: var(--eco-green);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12rem;
+}
+
+.page-heading h1 {
+    margin-bottom: 0.65rem;
+    color: var(--eco-green-dark);
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    font-weight: 800;
+}
+
+.page-heading p {
+    margin: 0;
+    color: var(--eco-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* =========================
+   CARD DO FORMULÁRIO
+========================= */
+
+.content-card {
+    overflow: hidden;
+    background: var(--eco-white);
+    border: 1px solid var(--eco-border);
+    border-radius: 1.2rem;
+    box-shadow: 0 12px 35px rgba(20, 83, 45, 0.06);
+}
+
+.form-card {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.card-heading {
+    padding: 1.6rem;
+    border-bottom: 1px solid #edf2ed;
+}
+
+.card-heading h2 {
+    margin-bottom: 0.5rem;
+    color: var(--eco-green-dark);
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.card-heading p {
+    margin: 0;
+    color: var(--eco-muted);
+    font-size: 0.88rem;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.participant-form {
+    padding: 1.6rem;
+}
+
+.section-title {
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #e6eee7;
+    color: var(--eco-green-dark);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.participant-form .form-label {
+    margin-bottom: 0.5rem;
+    color: #35483c;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.participant-form .form-control,
+.participant-form .form-select {
+    min-height: 3rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #dce7de;
+    border-radius: 0.75rem;
+    background-color: #fcfefc;
+    color: var(--eco-text);
+    font-size: 0.92rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.participant-form .form-control::placeholder {
+    color: #9aa99e;
+}
+
+.participant-form .form-control:focus,
+.participant-form .form-select:focus {
+    border-color: #4ade80;
+    box-shadow: 0 0 0 0.22rem rgba(34, 197, 94, 0.13);
+    background-color: var(--eco-white);
+    outline: none;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid #e6eee7;
+}
+
+.btn-eco {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 3rem;
+    padding: 0.75rem 1.3rem;
+    border: none;
+    border-radius: 0.8rem;
+    background: linear-gradient(
+        135deg,
+        var(--eco-green),
+        var(--eco-teal)
+    );
+    color: var(--eco-white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-eco:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(21, 128, 61, 0.2);
+    color: var(--eco-white);
+}
+
+.btn-cancel {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 3rem;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid #dce7de;
+    border-radius: 0.8rem;
+    background: var(--eco-white);
+    color: var(--eco-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-cancel:hover {
+    border-color: #b8dfc0;
+    background: #f4fbf5;
+    color: var(--eco-green-dark);
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    padding: 1.5rem 1rem;
+    border-top: 1px solid var(--eco-border);
+    background: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: var(--eco-muted);
+    font-size: 0.82rem;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 575.98px) {
+    .topbar {
+        padding: 0.9rem 1rem;
+    }
+
+    .brand {
+        font-size: 1.05rem;
+    }
+
+    .user-area {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .btn-sair {
+        padding: 0.5rem 0.7rem;
+    }
+
+    .page-content {
+        padding: 2rem 0.8rem;
+    }
+
+    .page-heading {
+        margin-bottom: 1.5rem;
+    }
+
+    .card-heading {
+        padding: 1.2rem;
+    }
+
+    .participant-form {
+        padding: 1.2rem;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .form-actions .btn-eco,
+    .form-actions .btn-cancel {
+        width: 100%;
+    }
+}

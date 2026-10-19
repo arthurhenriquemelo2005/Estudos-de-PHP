@@ -1,0 +1,442 @@
+
+/* ========================================
+   ECOPOINT - TELA DE EDIÇÃO
+   Arquivo: style3.css
+======================================== */
+
+/* 1. Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --verde-principal: #16834a;
+    --verde-escuro: #116638;
+    --verde-claro: #e9f7ef;
+    --fundo: #f4f7f5;
+    --branco: #ffffff;
+    --texto: #1f2937;
+    --texto-secundario: #6b7280;
+    --borda: #e2e8e5;
+    --sombra: 0 8px 30px rgba(15, 55, 35, 0.07);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   2. BARRA SUPERIOR
+======================================== */
+
+.topbar {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 6%;
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Logo e nome do sistema */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--verde-escuro);
+    font-size: 23px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.7px;
+}
+
+.brand:hover {
+    color: var(--verde-principal);
+}
+
+/* Símbolo da marca */
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--verde-principal);
+    color: var(--branco);
+    border-radius: 12px;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+/* Botões do cabeçalho */
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-painel,
+.btn-sair {
+    padding: 9px 17px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.btn-painel {
+    color: var(--verde-escuro);
+    background: var(--verde-claro);
+    border: 1px solid #ccebd8;
+}
+
+.btn-painel:hover {
+    background: #d8f0e2;
+    color: var(--verde-escuro);
+}
+
+.btn-sair {
+    color: #b42318;
+    background: #fff1f0;
+    border: 1px solid #ffd5d2;
+}
+
+.btn-sair:hover {
+    background: #ffe1df;
+    color: #8f1710;
+}
+
+/* ========================================
+   3. CONTEÚDO PRINCIPAL
+======================================== */
+
+.page-content {
+    width: min(100% - 40px, 1050px);
+    margin: 42px auto 60px;
+}
+
+/* Título e botão voltar */
+.page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--verde-principal);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.page-heading h1 {
+    margin: 0 0 8px;
+    color: #172b20;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.page-heading p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 15px;
+}
+
+/* ========================================
+   4. CARTÃO DO FORMULÁRIO
+======================================== */
+
+.form-card {
+    overflow: hidden;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+}
+
+/* Cabeçalho do cartão */
+.card-heading {
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.card-heading h2 {
+    margin: 0 0 6px;
+    color: #1c3024;
+    font-size: 21px;
+    font-weight: 750;
+}
+
+.card-heading p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* Área interna do formulário */
+.participant-form {
+    padding: 30px 32px;
+}
+
+/* ========================================
+   5. SEÇÕES DO FORMULÁRIO
+======================================== */
+
+.form-section {
+    margin-bottom: 32px;
+}
+
+.form-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--borda);
+    color: #263c2e;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+/* Indicador verde ao lado do título */
+.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: var(--verde-principal);
+    border-radius: 5px;
+}
+
+/* ========================================
+   6. CAMPOS DO FORMULÁRIO
+======================================== */
+
+.participant-form .form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #37463c;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.participant-form .form-control {
+    width: 100%;
+    min-height: 47px;
+    padding: 11px 14px;
+    background-color: #fcfdfc;
+    border: 1px solid #d6e0d9;
+    border-radius: 9px;
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 14px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Texto de exemplo dentro dos campos */
+.participant-form .form-control::placeholder {
+    color: #9ca8a0;
+}
+
+/* Quando o usuário clica em um campo */
+.participant-form .form-control:focus {
+    background: var(--branco);
+    border-color: var(--verde-principal);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(22, 131, 74, 0.12);
+}
+
+/* ========================================
+   7. BOTÕES DO FORMULÁRIO
+======================================== */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--borda);
+}
+
+/* Ajustes nos botões Bootstrap */
+.form-actions .btn {
+    min-height: 44px;
+    padding: 10px 20px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Botão cancelar */
+.form-actions .btn-outline-secondary {
+    color: #475569;
+    background: var(--branco);
+    border-color: #cbd5d1;
+}
+
+.form-actions .btn-outline-secondary:hover {
+    color: #26352b;
+    background: #f1f5f2;
+    border-color: #aab8af;
+}
+
+/* Botão salvar */
+.form-actions .btn-primary {
+    color: var(--branco);
+    background: var(--verde-principal);
+    border-color: var(--verde-principal);
+}
+
+.form-actions .btn-primary:hover {
+    color: var(--branco);
+    background: var(--verde-escuro);
+    border-color: var(--verde-escuro);
+    transform: translateY(-1px);
+}
+
+/* Botão voltar no cabeçalho */
+.page-heading .btn-outline-secondary {
+    padding: 10px 18px;
+    color: #475569;
+    background: var(--branco);
+    border-color: #cbd5d1;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.page-heading .btn-outline-secondary:hover {
+    color: var(--verde-escuro);
+    background: var(--verde-claro);
+    border-color: #b6dfc5;
+}
+
+/* ========================================
+   8. RESPONSIVIDADE - TABLETS E CELULARES
+======================================== */
+
+@media (max-width: 768px) {
+    .topbar {
+        min-height: 68px;
+        padding: 14px 20px;
+    }
+
+    .brand {
+        gap: 9px;
+        font-size: 20px;
+    }
+
+    .brand-mark {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .user-area {
+        gap: 8px;
+    }
+
+    .btn-painel,
+    .btn-sair {
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .page-content {
+        width: calc(100% - 28px);
+        margin-top: 28px;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .page-heading h1 {
+        font-size: 28px;
+    }
+
+    .page-heading p {
+        font-size: 14px;
+    }
+
+    .card-heading {
+        padding: 24px 22px;
+    }
+
+    .participant-form {
+        padding: 24px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .user-area {
+        width: 100%;
+    }
+
+    .page-heading {
+        flex-direction: column;
+    }
+
+    .page-heading .btn-outline-secondary {
+        align-self: flex-start;
+    }
+
+    .page-heading h1 {
+        font-size: 25px;
+    }
+
+    .card-heading {
+        padding: 20px 17px;
+    }
+
+    .participant-form {
+        padding: 22px 17px;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+}

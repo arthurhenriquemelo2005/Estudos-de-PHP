@@ -57,7 +57,7 @@
             <article class="modulo">
                 <h3>Agendamentos</h3>
                 <p>Criação, alteração e cancelamento de agendamentos.</p>
-                <a href="#">Acessar módulo</a>
+                <a href="../paginas/agendamentos/agendamentos.php">Acessar módulo</a>
             </article>
 
             <article class="modulo">

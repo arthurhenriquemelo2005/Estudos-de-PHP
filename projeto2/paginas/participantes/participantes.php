@@ -202,12 +202,21 @@ function escapar($valor)
                                                 Editar
                                             </a>
 
-                                            <a
-                                                href="excluir.php?id=<?= (int) $participante['id_participante'] ?>"
-                                                class="btn-delete"
-                                                onclick="return confirm('Tem certeza que deseja excluir este participante?')">
-                                                Excluir
-                                            </a>
+                                            <form
+                                                action="deletar.php"
+                                                method="POST"
+                                                style="display: inline;"
+                                                onsubmit="return confirm('Tem certeza que deseja excluir este participante?')">
+
+                                                <input
+                                                    type="hidden"
+                                                    name="id_participante"
+                                                    value="<?= (int) $participante['id_participante'] ?>">
+
+                                                <button type="submit" class="btn-delete">
+                                                    Excluir
+                                                </button>
+                                            </form>
 
                                         </div>
                                     </td>

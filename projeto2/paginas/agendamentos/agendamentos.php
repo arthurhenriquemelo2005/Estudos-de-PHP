@@ -3,7 +3,7 @@
 session_start();
 
 require_once __DIR__ . '/../../conexao/conexao.php';
-require_once __DIR__ . '/agendar.php';
+require_once __DIR__ . '/buscar.php';
 function e($valor)
 {
     return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');

@@ -13,9 +13,36 @@ $sql = "SELECT * FROM clientes ORDER BY id_cliente DESC";
 $stmt = $pdo->query($sql);
 $clientes = $stmt->fetchAll();
 
+$busca = trim($_GET['busca'] ?? '');
+if ($busca !== '') {
+
+    $sql = "SELECT * FROM clientes
+            WHERE nome LIKE :nome
+               OR cpf LIKE :cpf
+               OR email LIKE :email
+            ORDER BY id_cliente DESC";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute([
+        ':nome' => "%$busca%",
+        ':cpf' => "%$busca%",
+        ':email' => "%$busca%"
+    ]);
+
+} else {
+
+    
+    $sql = "SELECT * FROM clientes
+            ORDER BY id_cliente DESC";
+
+    $stmt = $pdo->query($sql);
+}
 function e($valor) {
     return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');
 }
+
+$clientes = $stmt ->fetchAll();
 
 $mensagem = $_SESSION['mensagem'] ?? '';
 unset($_SESSION['mensagem']);
@@ -99,11 +126,35 @@ unset($_SESSION['mensagem']);
         </form>
     </section>
 
+    <section>
+        <form action="clientes.php" method="GET" class="busca-form">
+    <input
+        type="search"
+        name="busca"
+        placeholder="Buscar por nome, CPF ou e-mail..."
+        value="<?= e($busca) ?>"
+    >
+
+    <button type="submit" class="btn-principal">
+        Buscar
+    </button>
+
+    <?php if ($busca !== ''): ?>
+        <a href="clientes.php" class="btn-editar">
+            Limpar busca
+        </a>
+    <?php endif; ?>
+</form>
+    </section>
     <section class="card">
         <div class="card-header lista-header">
             <div>
-                <h2>Clientes cadastrados</h2>
-                <p><?= count($clientes) ?> registro(s) encontrado(s).</p>
+                <p>
+                    <?= count($clientes)  ?> reigistro(s) encontrado(s)
+                    <?php if ($busca !== ''): ?>
+                    Buscar por: "<?= e($busca)  ?>"
+                    <?php endif; ?>
+                </p>
             </div>
         </div>
 

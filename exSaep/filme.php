@@ -30,23 +30,28 @@ unset($_SESSION['mensagem']);
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes | Locadora</title>
-    <link rel="stylesheet" href="filmes.css">
+    
 </head>
 <body>
 
 <header class="topbar">
+
     <div>
+
         <a href="painel.php" class="voltar">← Voltar ao painel</a>
         <h1>Acervo de filmes</h1>
         <p>Cadastre e gerencie os filmes da locadora.</p>
+
     </div>
 
     <span class="usuario">
         <?= e($_SESSION['nome'] ?? 'Usuário') ?>
     </span>
+
 </header>
 
 <main class="container">
@@ -58,12 +63,13 @@ unset($_SESSION['mensagem']);
     <?php endif; ?>
 
     <section class="card">
+
         <div class="card-header">
             <h2>Novo filme</h2>
             <p>Informe os dados do filme para adicioná-lo ao acervo.</p>
         </div>
 
-        <form action="salvarFilme.php" method="POST">
+        <form action="cadastrarFilme.php" method="POST">
             <div class="form-grid">
 
                 <div class="campo campo-largo">
@@ -147,9 +153,11 @@ unset($_SESSION['mensagem']);
                 Cadastrar filme
             </button>
         </form>
+
     </section>
 
     <section class="card">
+
         <div class="card-header lista-header">
             <div>
                 <h2>Filmes cadastrados</h2>
@@ -196,6 +204,7 @@ unset($_SESSION['mensagem']);
                 </tbody>
             </table>
         </div>
+
     </section>
 
 </main>

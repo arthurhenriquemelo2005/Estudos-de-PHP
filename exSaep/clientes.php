@@ -24,10 +24,11 @@ unset($_SESSION['mensagem']);
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes | Locadora</title>
-    <link rel="stylesheet" href="clientes.css">
+
 </head>
 <body>
 

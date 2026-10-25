@@ -1,0 +1,38 @@
+
+services:
+  app:
+    build: .
+    container_name: locadora_php
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_NAME: ex_saep
+      DB_USER: root
+      DB_PASSWORD: admin
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    container_name: locadora_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: ex_saep
+    ports:
+      - "3307:3306"
+    volumes:
+      - dados_locadora:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -padmin --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+volumes:
+  dados_locadora:
+  

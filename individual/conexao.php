@@ -7,6 +7,7 @@
     $usuario = 'root';
     $senha = 'XXX';
 
+    //Tentativa de conexão  
     try{
         
         $pdo = new PDO(
@@ -18,7 +19,7 @@
         $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
         
-    
+        //Tratamento de erro
         }catch(PDOException $e) {
             echo "Erro na conexão" .$e -> getMessage();
         }

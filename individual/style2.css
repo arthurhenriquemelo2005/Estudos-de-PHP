@@ -1,0 +1,305 @@
+/* ========================================
+   1. CONFIGURAÇÕES GERAIS
+======================================== */
+
+:root {
+    --verde: #198754;
+    --verde-escuro: #146c43;
+    --verde-hover: #157347;
+    --verde-claro: #eaf5ee;
+
+    --texto: #172b24;
+    --texto-secundario: #64748b;
+
+    --borda: #e2e8e4;
+    --fundo: #f4f7f5;
+    --branco: #ffffff;
+
+    --sombra: 0 12px 35px rgba(15, 42, 28, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(25, 135, 84, 0.08),
+            transparent 32%
+        ),
+        var(--fundo);
+
+    color: var(--texto);
+    font-family: "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   2. CONTEÚDO PRINCIPAL
+======================================== */
+
+main.container {
+    max-width: 1120px;
+    padding: 48px 24px;
+}
+
+/* ========================================
+   3. TÍTULO
+======================================== */
+
+h1 {
+    position: relative;
+
+    margin: 0 auto 30px;
+    padding: 0 0 20px 18px;
+
+    border-bottom: 1px solid var(--borda);
+
+    color: var(--texto);
+    font-size: clamp(25px, 3vw, 32px);
+    font-weight: 750;
+    letter-spacing: -0.8px;
+    line-height: 1.3;
+}
+
+h1::before {
+    content: "";
+
+    position: absolute;
+    top: 2px;
+    bottom: 22px;
+    left: 0;
+
+    width: 5px;
+    border-radius: 5px;
+
+    background: linear-gradient(
+        180deg,
+        #25a765,
+        var(--verde-escuro)
+    );
+}
+
+/* ========================================
+   4. CONTAINER DA TABELA
+======================================== */
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+
+    background: var(--branco);
+    box-shadow: var(--sombra);
+
+    scrollbar-width: thin;
+    scrollbar-color: #b7cbbd #f4f7f5;
+}
+
+/* ========================================
+   5. ESTRUTURA DA TABELA
+======================================== */
+
+.tabela-produtos {
+    width: 100%;
+    margin-bottom: 0;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Cabeçalho */
+
+.tabela-produtos thead th {
+    padding: 19px 22px;
+
+    background: #edf6f0;
+    color: #315c43;
+
+    border-bottom: 1px solid #dce9df;
+
+    font-size: 12px;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* Primeira e última coluna */
+
+.tabela-produtos thead th:first-child {
+    padding-left: 26px;
+}
+
+.tabela-produtos tbody td:first-child {
+    padding-left: 26px;
+    color: #245c40;
+    font-weight: 650;
+}
+
+/* Células */
+
+.tabela-produtos tbody td {
+    padding: 19px 22px;
+
+    border-bottom: 1px solid #edf1ee;
+
+    background: var(--branco);
+    color: var(--texto);
+
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+/* Linhas alternadas */
+
+.tabela-produtos tbody tr:nth-child(even) td {
+    background: #fafcfb;
+}
+
+/* Efeito ao passar o mouse */
+
+.tabela-produtos tbody tr:hover td {
+    background: #f0f8f2;
+}
+
+/* Última linha */
+
+.tabela-produtos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   6. BOTÃO VOLTAR
+======================================== */
+
+.acoes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    margin: 26px auto 0;
+}
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 46px;
+    padding: 12px 20px;
+
+    border: 1px solid var(--verde);
+    border-radius: 9px;
+
+    background: var(--verde);
+    color: var(--branco);
+
+    font-size: 14px;
+    font-weight: 650;
+    text-decoration: none;
+
+    box-shadow: 0 4px 10px rgba(25, 135, 84, 0.13);
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-voltar:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--verde-hover);
+    background: var(--verde-hover);
+    color: var(--branco);
+
+    box-shadow: 0 7px 16px rgba(25, 135, 84, 0.2);
+}
+
+.btn-voltar:active {
+    transform: translateY(0);
+}
+
+.btn-voltar:focus-visible {
+    outline: 3px solid rgba(25, 135, 84, 0.25);
+    outline-offset: 4px;
+}
+
+/* ========================================
+   7. ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+/* ========================================
+   8. RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 768px) {
+    main.container {
+        padding: 34px 18px;
+    }
+
+    h1 {
+        margin-bottom: 24px;
+        font-size: 26px;
+    }
+
+    .tabela-produtos thead th {
+        padding: 16px 18px;
+        font-size: 11px;
+    }
+
+    .tabela-produtos tbody td {
+        padding: 16px 18px;
+        font-size: 13px;
+    }
+
+    .tabela-produtos thead th:first-child,
+    .tabela-produtos tbody td:first-child {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    main.container {
+        padding: 26px 12px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .acoes {
+        margin-top: 20px;
+    }
+
+    .btn-voltar {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .tabela-container {
+        border-radius: 10px;
+    }
+}

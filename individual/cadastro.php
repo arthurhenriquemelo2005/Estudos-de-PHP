@@ -1,28 +1,29 @@
-<?php 
-    //Chamando conexao com o banco de dados
-    require_once 'conexao.php';
+<?php
+//Chamando conexao com o banco de dados
+require_once 'conexao.php';
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Produtos</title>
-    
+
 </head>
 <body>
 
-    <form action="cadastrarPoduto.php"method="POST">
-        
+    <form action="cadastrarProduto.php" method="POST">
+
         <h1>Cadastrar Produtos</h1>
 
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required>
-        
+
         <label for="preco">Preço do Produto</label>
         <input type="text" name="preco" id="preco" inputmode="numeric" placeholder="R$0,00" required>
 
@@ -30,10 +31,24 @@
         <input type="number" name="quantidade" inputmode="numeric" placeholder="Exemplo: 1" required>
 
         <label for="categoria">Categoria</label>
-        <input type="text" name="categoria" id="categoria" placeholder="Categoria do produto">   
-        
+
+        <select name="categorias" id="categorias">
+
+            <option value="eletronico">Eletrônico</option>
+            <option value="periferico">Periférico</option>
+            <option value="informatica">Informatica</option>
+            <option value="vestuario">Vestuário</option>
+            <option value="alimento">Aliementos</option>
+            <option value="bebida">Bebidas</option>
+            <option value="limpeza">Limpeza</option>
+            <option value="casa e decoração">Casa e Decoração</option>
+            <option value="papelaria">Papelaria</option>
+            <option value="outros">Outros</option>
+
+        </select>
+
         <input type="submit" value="Cadastrar Produto">
-    
+
     </form>
 
 </body>

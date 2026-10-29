@@ -1,13 +1,15 @@
 <?php
-
+//Chamando conexão do banco
 require_once 'conexao.php';
 
+//Comando para fazer a busca no banco de dados
 $sql = "SELECT * FROM produtos";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
+//Comando que faz a varredura pela tabela
 $produtos = $stmt->fetchAll();
-$total = count($produtos);
+$total = count($produtos); //Comando que faz a contagem dos produtos
 
 ?>
 
@@ -51,6 +53,7 @@ $total = count($produtos);
                     </thead>
 
                     <tbody>
+                        <!--Faz validação se tem algo em produtos-->
                         <?php if ($total === 0): ?>
                             <tr class="linha-vazia">
                                 <td colspan="5">
@@ -59,7 +62,8 @@ $total = count($produtos);
                                 </td>
                             </tr>
                         <?php endif; ?>
-
+                            
+                        <!--Exibi os Produtos na tela-->
                         <?php foreach ($produtos as $produto): ?>
                             <tr>
                                 <td class="col-nome"><?= htmlspecialchars($produto['nome']) ?></td>

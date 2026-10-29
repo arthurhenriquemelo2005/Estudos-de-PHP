@@ -5,7 +5,7 @@
     $servidor = 'localhost';
     $nome = 'produto';
     $usuario = 'root';
-    $senha = '';
+    $senha = 'admin';
 
     //Tentativa de conexão  
     try{

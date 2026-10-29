@@ -7,6 +7,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
 $produtos = $stmt->fetchAll();
+$total = count($produtos);
 
 ?>
 
@@ -18,49 +19,77 @@ $produtos = $stmt->fetchAll();
 
     <title>Produtos | Cadastrados</title>
 
-  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
-    <main class="container py-4">
+    <main class="container pagina-produtos">
 
-        <h1>Produtos Cadastrados</h1>
+        <section class="painel">
 
-        <div class="tabela-container">
-            <table class="table tabela-produtos mb-0">
+            <header class="painel__topo">
+                <div class="painel__titulo">
+                    <h1>Produtos Cadastrados</h1>
+                    <p>Veja todos os itens do seu catálogo em um só lugar.</p>
+                </div>
+                <span class="painel__contador"><?= $total ?> <?= $total === 1 ? 'item' : 'itens' ?></span>
+            </header>
 
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                        <th>Categoria</th>
-                    </tr>
-                </thead>
+            <div class="tabela-container">
+                <table class="table table-hover tabela-produtos mb-0">
 
-                <tbody>
-                    <?php foreach ($produtos as $produto): ?>
+                    <thead>
                         <tr>
-                            <td><?= htmlspecialchars($produto['nome']) ?></td>
-                            <td>R$ <?= htmlspecialchars($produto['preco']) ?></td>
-                            <td><?= htmlspecialchars($produto['quantidade']) ?></td>
-                            <td><?= htmlspecialchars($produto['categoria']) ?></td>
+                            <th>Produto</th>
+                            <th class="col-numero">Preço</th>
+                            <th class="col-quantidade">Quantidade</th>
+                            <th>Categoria</th>
+                            <th class="col-acoes">Ações</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
+                    </thead>
 
-            </table>
-        </div>
+                    <tbody>
+                        <?php if ($total === 0): ?>
+                            <tr class="linha-vazia">
+                                <td colspan="5">
+                                    Nenhum produto cadastrado ainda.
+                                    <a href="cadastro.php">Cadastrar o primeiro produto</a>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
 
-        <div class="acoes">
-            <a href="cadastro.php" class="btn-voltar">
-                &larr; Voltar para cadastro
-            </a>
-        </div>
+                        <?php foreach ($produtos as $produto): ?>
+                            <tr>
+                                <td class="col-nome"><?= htmlspecialchars($produto['nome']) ?></td>
+                                <td class="col-numero">R$ <?= htmlspecialchars($produto['preco']) ?></td>
+                                <td class="col-quantidade"><?= htmlspecialchars($produto['quantidade']) ?></td>
+                                <td><span class="selo-categoria"><?= htmlspecialchars($produto['categoria']) ?></span></td>
+                                <td class="col-acoes">
+                                    <div class="grupo-acoes">
+                                        <a href="editar.php?id=<?= (int) $produto['id'] ?>" class="btn-editar">Editar</a>
+
+                                        <form action="deletar.php" method="POST" class="form-deletar">
+                                            <input type="hidden" name="id" value="<?= (int) $produto['id'] ?>">
+                                            <button type="submit" class="btn-deletar" onclick="return confirm('Deseja realmente excluir este produto?')">Deletar</button>
+                                        </form> 
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <footer class="acoes">
+                <a href="cadastro.php" class="btn-voltar">
+                    &larr; Voltar para cadastro
+                </a>
+            </footer>
+
+        </section>
 
     </main>
 

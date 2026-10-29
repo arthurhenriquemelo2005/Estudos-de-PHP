@@ -1,305 +1,360 @@
-/* ========================================
-   1. CONFIGURAÇÕES GERAIS
-======================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-    --verde: #198754;
-    --verde-escuro: #146c43;
-    --verde-hover: #157347;
-    --verde-claro: #eaf5ee;
+  --cor-fundo: #eaf1ef;
+  --cor-superficie: #ffffff;
+  --cor-texto: #12302b;
+  --cor-texto-suave: #61766f;
+  --cor-borda: #d6e2df;
+  --cor-linha: #e8efed;
+  --cor-primaria: #0f766e;
+  --cor-primaria-escura: #0a5c56;
+  --cor-primaria-clara: #e3f3f0;
+  --cor-destaque: #f2b134;
+  --cor-perigo: #b42318;
+  --cor-perigo-clara: #fdeceb;
+  --cor-perigo-borda: #f2cfcb;
+  --sombra-cartao: 0 1px 2px rgba(18, 48, 43, 0.06), 0 24px 48px -20px rgba(15, 80, 72, 0.35);
 
-    --texto: #172b24;
-    --texto-secundario: #64748b;
-
-    --borda: #e2e8e4;
-    --fundo: #f4f7f5;
-    --branco: #ffffff;
-
-    --sombra: 0 12px 35px rgba(15, 42, 28, 0.06);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  --bs-primary: var(--cor-primaria);
+  --bs-primary-rgb: 15, 118, 110;
+  --bs-body-font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --bs-body-color: var(--cor-texto);
+  --bs-link-color: var(--cor-primaria);
+  --bs-link-hover-color: var(--cor-primaria-escura);
 }
 
 body {
-    min-height: 100vh;
-    background:
-        radial-gradient(
-            circle at top left,
-            rgba(25, 135, 84, 0.08),
-            transparent 32%
-        ),
-        var(--fundo);
-
-    color: var(--texto);
-    font-family: "Segoe UI", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  background:
+    radial-gradient(40rem 28rem at 12% 8%, rgba(15, 118, 110, 0.14), transparent 60%),
+    radial-gradient(34rem 26rem at 92% 94%, rgba(242, 177, 52, 0.16), transparent 60%),
+    var(--cor-fundo);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ========================================
-   2. CONTEÚDO PRINCIPAL
-======================================== */
-
-main.container {
-    max-width: 1120px;
-    padding: 48px 24px;
+.pagina-produtos {
+  max-width: 62rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
-/* ========================================
-   3. TÍTULO
-======================================== */
-
-h1 {
-    position: relative;
-
-    margin: 0 auto 30px;
-    padding: 0 0 20px 18px;
-
-    border-bottom: 1px solid var(--borda);
-
-    color: var(--texto);
-    font-size: clamp(25px, 3vw, 32px);
-    font-weight: 750;
-    letter-spacing: -0.8px;
-    line-height: 1.3;
+.painel {
+  background: var(--cor-superficie);
+  border: 1px solid rgba(214, 226, 223, 0.9);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: var(--sombra-cartao);
+  animation: entrada 0.45s ease-out both;
 }
 
-h1::before {
-    content: "";
-
-    position: absolute;
-    top: 2px;
-    bottom: 22px;
-    left: 0;
-
-    width: 5px;
-    border-radius: 5px;
-
-    background: linear-gradient(
-        180deg,
-        #25a765,
-        var(--verde-escuro)
-    );
+.painel__topo {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.9rem 2.25rem;
+  color: #fff;
+  background: linear-gradient(135deg, #14877e 0%, #0f766e 45%, #0a5c56 100%);
 }
 
-/* ========================================
-   4. CONTAINER DA TABELA
-======================================== */
+.painel__topo::after {
+  content: "";
+  position: absolute;
+  top: -5rem;
+  right: -3.5rem;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f7c75e, var(--cor-destaque));
+  opacity: 0.92;
+}
+
+.painel__titulo {
+  position: relative;
+  z-index: 1;
+}
+
+.painel__titulo h1 {
+  margin: 0 0 0.3rem;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.painel__titulo p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #d3efea;
+}
+
+.painel__contador {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #5b3d00;
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 6px 14px -8px rgba(0, 0, 0, 0.35);
+}
 
 .tabela-container {
-    width: 100%;
-    overflow-x: auto;
-
-    border: 1px solid var(--borda);
-    border-radius: 14px;
-
-    background: var(--branco);
-    box-shadow: var(--sombra);
-
-    scrollbar-width: thin;
-    scrollbar-color: #b7cbbd #f4f7f5;
+  overflow-x: auto;
 }
-
-/* ========================================
-   5. ESTRUTURA DA TABELA
-======================================== */
 
 .tabela-produtos {
-    width: 100%;
-    margin-bottom: 0;
-
-    border-collapse: separate;
-    border-spacing: 0;
-
-    vertical-align: middle;
-    white-space: nowrap;
+  --bs-table-bg: transparent;
+  --bs-table-hover-bg: #f3f9f8;
+  --bs-table-hover-color: var(--cor-texto);
+  min-width: 46rem;
+  font-size: 0.96rem;
+  vertical-align: middle;
 }
-
-/* Cabeçalho */
 
 .tabela-produtos thead th {
-    padding: 19px 22px;
-
-    background: #edf6f0;
-    color: #315c43;
-
-    border-bottom: 1px solid #dce9df;
-
-    font-size: 12px;
-    font-weight: 750;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  white-space: nowrap;
+  background: #f6faf9;
+  border-bottom: 1px solid var(--cor-borda);
 }
-
-/* Primeira e última coluna */
-
-.tabela-produtos thead th:first-child {
-    padding-left: 26px;
-}
-
-.tabela-produtos tbody td:first-child {
-    padding-left: 26px;
-    color: #245c40;
-    font-weight: 650;
-}
-
-/* Células */
 
 .tabela-produtos tbody td {
-    padding: 19px 22px;
-
-    border-bottom: 1px solid #edf1ee;
-
-    background: var(--branco);
-    color: var(--texto);
-
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+  padding: 1.05rem 1.5rem;
+  color: var(--cor-texto);
+  border-bottom: 1px solid var(--cor-linha);
 }
-
-/* Linhas alternadas */
-
-.tabela-produtos tbody tr:nth-child(even) td {
-    background: #fafcfb;
-}
-
-/* Efeito ao passar o mouse */
-
-.tabela-produtos tbody tr:hover td {
-    background: #f0f8f2;
-}
-
-/* Última linha */
 
 .tabela-produtos tbody tr:last-child td {
-    border-bottom: none;
+  border-bottom: 0;
 }
 
-/* ========================================
-   6. BOTÃO VOLTAR
-======================================== */
+.tabela-produtos tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.col-nome {
+  font-weight: 600;
+}
+
+.col-numero {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.col-quantidade {
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.col-acoes {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.selo-categoria {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--cor-primaria-escura);
+  background: var(--cor-primaria-clara);
+  border-radius: 2rem;
+  white-space: nowrap;
+}
+
+.grupo-acoes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.form-deletar {
+  margin: 0;
+}
+
+.btn-editar,
+.btn-deletar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  background: #fff;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: 0.65rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-editar::before,
+.btn-deletar::before {
+  content: "";
+  width: 0.95rem;
+  height: 0.95rem;
+  background-color: currentColor;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.btn-editar {
+  color: var(--cor-primaria);
+}
+
+.btn-editar::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h9'/%3E%3Cpath d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h9'/%3E%3Cpath d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z'/%3E%3C/svg%3E");
+}
+
+.btn-editar:hover {
+  color: #fff;
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  transform: translateY(-1px);
+}
+
+.btn-deletar {
+  color: var(--cor-perigo);
+  border-color: var(--cor-perigo-borda);
+}
+
+.btn-deletar::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6M14 11v6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6M14 11v6'/%3E%3C/svg%3E");
+}
+
+.btn-deletar:hover {
+  color: #fff;
+  background: var(--cor-perigo);
+  border-color: var(--cor-perigo);
+  transform: translateY(-1px);
+}
+
+.btn-editar:active,
+.btn-deletar:active {
+  transform: translateY(0);
+}
+
+.linha-vazia td {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--cor-texto-suave);
+}
+
+.linha-vazia a {
+  display: block;
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
 
 .acoes {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    width: 100%;
-    margin: 26px auto 0;
+  display: flex;
+  justify-content: flex-start;
+  padding: 1.4rem 2.25rem 1.6rem;
+  border-top: 1px solid var(--cor-borda);
+  background: #fbfdfc;
 }
 
 .btn-voltar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    min-height: 46px;
-    padding: 12px 20px;
-
-    border: 1px solid var(--verde);
-    border-radius: 9px;
-
-    background: var(--verde);
-    color: var(--branco);
-
-    font-size: 14px;
-    font-weight: 650;
-    text-decoration: none;
-
-    box-shadow: 0 4px 10px rgba(25, 135, 84, 0.13);
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--cor-primaria);
+  background: #fff;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: 0.85rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .btn-voltar:hover {
-    transform: translateY(-2px);
-
-    border-color: var(--verde-hover);
-    background: var(--verde-hover);
-    color: var(--branco);
-
-    box-shadow: 0 7px 16px rgba(25, 135, 84, 0.2);
+  color: var(--cor-primaria-escura);
+  background: var(--cor-primaria-clara);
+  border-color: #a9d3cd;
+  transform: translateX(-2px);
 }
 
-.btn-voltar:active {
+.btn-voltar:focus-visible,
+.btn-editar:focus-visible,
+.btn-deletar:focus-visible,
+.linha-vazia a:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 3px;
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
     transform: translateY(0);
+  }
 }
 
-.btn-voltar:focus-visible {
-    outline: 3px solid rgba(25, 135, 84, 0.25);
-    outline-offset: 4px;
-}
+@media (max-width: 575.98px) {
+  .pagina-produtos {
+    padding: 1rem 0.75rem;
+  }
 
-/* ========================================
-   7. ACESSIBILIDADE
-======================================== */
+  .painel {
+    border-radius: 1.25rem;
+  }
+
+  .painel__topo {
+    padding: 1.5rem 1.4rem;
+  }
+
+  .painel__titulo h1 {
+    font-size: 1.4rem;
+  }
+
+  .tabela-produtos thead th,
+  .tabela-produtos tbody td {
+    padding: 0.9rem 1rem;
+  }
+
+  .acoes {
+    padding: 1.2rem 1.4rem 1.4rem;
+  }
+
+  .btn-voltar {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-    }
-}
-
-/* ========================================
-   8. RESPONSIVIDADE
-======================================== */
-
-@media (max-width: 768px) {
-    main.container {
-        padding: 34px 18px;
-    }
-
-    h1 {
-        margin-bottom: 24px;
-        font-size: 26px;
-    }
-
-    .tabela-produtos thead th {
-        padding: 16px 18px;
-        font-size: 11px;
-    }
-
-    .tabela-produtos tbody td {
-        padding: 16px 18px;
-        font-size: 13px;
-    }
-
-    .tabela-produtos thead th:first-child,
-    .tabela-produtos tbody td:first-child {
-        padding-left: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    main.container {
-        padding: 26px 12px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .acoes {
-        margin-top: 20px;
-    }
-
-    .btn-voltar {
-        width: 100%;
-        min-height: 48px;
-    }
-
-    .tabela-container {
-        border-radius: 10px;
-    }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

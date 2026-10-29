@@ -18,16 +18,15 @@
     //Preparando o comando sql
     $stmt = $pdo ->prepare($sql);
 
-    //Executando o comando sql 
-    $stmt -> execute ([
+        //Executando o comando sql 
+    $stmt->execute([
         ":nome" => $nome,
         ":preco" => $preco,
         ":quantidade" => $quantidade,
         ":categoria" => $categoria
     ]);
 
-    //Caso tentativa tenha dado certo mostra ao usuário A mensagem de produto cadastrado
-    echo 'Produto cadastrado';
+    echo "Produto cadastrado com sucesso!";
 
     //tratamento de erro
     } catch (PDOException $e) {

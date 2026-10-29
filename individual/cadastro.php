@@ -1,9 +1,6 @@
 <?php
-//Chamando conexao com o banco de dados
 require_once 'conexao.php';
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,50 +10,72 @@ require_once 'conexao.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Produtos</title>
-   <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
->
 
-<link rel="stylesheet" href="style.css">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-    <form action="cadastrarProduto.php" method="POST">
+    <main class="cartao-produto">
 
-        <h1>Cadastrar Produtos</h1>
+        <header class="cartao-produto__topo">
+            <h1>Cadastrar Produtos</h1>
+            <p>Preencha os dados abaixo para adicionar um produto.</p>
+        </header>
 
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required>
+        <form action="cadastrarProduto.php" method="POST" class="cartao-produto__corpo">
 
-        <label for="preco">Preço do Produto</label>
-        <input type="text" name="preco" id="preco" inputmode="numeric" placeholder="R$0,00" required>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do Produto" required>
+            </div>
 
-        <label for="quantidade">Quantidade</label>
-        <input type="number" name="quantidade" inputmode="numeric" placeholder="Exemplo: 1" required>
+            <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                    <label for="preco" class="form-label">Preço do Produto</label>
+                    <div class="input-group">
+                        <span class="input-group-text">R$</span>
+                        <input type="text" class="form-control" name="preco" id="preco" inputmode="numeric" placeholder="0,00" required>
+                    </div>
+                </div>
 
-        <label for="categoria">Categoria</label>
+                <div class="col-sm-6">
+                    <label for="quantidade" class="form-label">Quantidade</label>
+                    <input type="number" class="form-control" name="quantidade" id="quantidade" inputmode="numeric" min="1" placeholder="Exemplo: 1" required>
+                </div>
+            </div>
 
-        <select name="categorias" id="categorias">
+            <div class="mb-4">
+                <label for="categorias" class="form-label">Categoria</label>
 
-            <option value="eletronico">Eletrônico</option>
-            <option value="periferico">Periférico</option>
-            <option value="informatica">Informatica</option>
-            <option value="vestuario">Vestuário</option>
-            <option value="alimento">Aliementos</option>
-            <option value="bebida">Bebidas</option>
-            <option value="limpeza">Limpeza</option>
-            <option value="casa e decoração">Casa e Decoração</option>
-            <option value="papelaria">Papelaria</option>
-            <option value="outros">Outros</option>
+                <select class="form-select" name="categorias" id="categorias">
 
-        </select>
+                    <option value="eletronico">Eletrônico</option>
+                    <option value="periferico">Periférico</option>
+                    <option value="informatica">Informática</option>
+                    <option value="vestuario">Vestuário</option>
+                    <option value="alimento">Alimentos</option>
+                    <option value="bebida">Bebidas</option>
+                    <option value="limpeza">Limpeza</option>
+                    <option value="casa e decoração">Casa e Decoração</option>
+                    <option value="papelaria">Papelaria</option>
+                    <option value="outros">Outros</option>
 
-        <input type="submit" value="Cadastrar Produto">
+                </select>
+            </div>
 
-        <a href="verProdutos.php">Ir para tela de produtos Cadastrados</a>
-    </form>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-cadastrar">Cadastrar Produto</button>
+                <a href="verProdutos.php" class="btn btn-voltar">Ver produtos cadastrados</a>
+            </div>
+        </form>
+
+    </main>
 
 </body>
 </html>

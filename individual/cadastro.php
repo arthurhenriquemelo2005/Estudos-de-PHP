@@ -40,7 +40,7 @@ require_once 'conexao.php';
                     <label for="preco" class="form-label">Preço do Produto</label>
                     <div class="input-group">
                         <span class="input-group-text">R$</span>
-                        <input type="text" class="form-control" name="preco" id="preco" inputmode="numeric" placeholder="0,00" required>
+                        <input type="text" class="form-control" name="preco" id="preco" inputmode="decimal" placeholder="0,00" required>
                     </div>
                 </div>
 

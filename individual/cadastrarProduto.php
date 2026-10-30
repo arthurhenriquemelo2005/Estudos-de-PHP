@@ -2,11 +2,15 @@
     //Buscando a conexão com o banco de dados
     require_once 'conexao.php';
 
+    if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+        header("Location: cadastro.php");
+        exit;
+    }
    //Tentativa de enviar o formulário para o banco 
    try {
     
     //Pegando os dados do formulário
-    $nome = $_POST['nome'];
+    $nome =  $_POST['nome'];
     $preco = $_POST['preco'];
     $quantidade = $_POST['quantidade'];
     $categoria = $_POST['categorias'];
@@ -26,12 +30,12 @@
         ":categoria" => $categoria
     ]);
 
-    echo "Produto cadastrado com sucesso!";
+   
 
     //tratamento de erro
     } catch (PDOException $e) {
         //Caso a tentativa de cadastrar o produto der erro Mostra a mensgem de erro 
-        echo 'Erro ao cadastrar o produto' . $e ->getMessage();
+        error_log($e ->getMessage());
     }
 
     //Direciona para a tela do formulário

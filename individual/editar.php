@@ -43,33 +43,38 @@ if (!$produto) {
 </head>
 
 <body>
-    <form action="atualizarProduto" method="POST">
+    <form action="atualizarProduto.php" method="POST">
 
-        <h1>Editar Produto</h1>
+       
+
+
+        
+      
+        <h1>Editar Produto |  <?= htmlspecialchars($produto['nome']) ?></h1>
 
         <label for="nome">Nome do produto</label>
-        <input type="text" name="nome" id="nome" placeholder="Nome do produto" required>
+        <input type="text" name="nome" value="<?= htmlspecialchars($produto['nome']) ?> " id="nome" placeholder="Nome do produto" required>
 
         <label for="preco">Preço do Produto</label>
-        <input type="text" name="preco" id="preco" inputmode="numeric" placeholder="R$0,00" required>
+        <input type="text" name="preco" value="<?= htmlspecialchars($produto['preco']) ?>" id="preco" inputmode="numeric" placeholder="R$0,00" required>
 
         <label for="quantidade">Quantidade</label>
-        <input type="number" name="quantidade" id="quantidade" inputmode="numeric" placeholder="Exemplo: 1" required>
+        <input type="number" name="quantidade" value="<?= htmlspecialchars($produto['quantidade']) ?>" id="quantidade" inputmode="numeric" placeholder="Exemplo: 1" required>
 
         <label for="categoria">Categoria</label>
 
         <select name="categorias" id="categorias">
 
-            <option value="eletronico">Eletrônico</option>
-            <option value="periferico">Periférico</option>
-            <option value="informatica">Informática</option>
-            <option value="vestuario">Vestuário</option>
-            <option value="alimentos">Alimento</option>
-            <option value="bebidas">Bebida</option>
-            <option value="limpeza">Limpeza</option>
-            <option value="casa e decoração">Casa de Decoração</option>
-            <option value="papelaria">Papelaria</option>
-            <option value="outros">Outros</option>
+            <option value="eletronico" <?= $produto['categoria'] === 'eletronico' ? 'selected': '' ?>>Eletrônico</option>
+            <option value="periferico" <?= $produto['categoria'] === 'periferico' ? 'selected' : '' ?> >>Periférico</option>
+            <option value="informatica"<?= $produto['categoria'] === 'informatica' ? 'selecetd': '' ?>>Informática</option>
+            <option value="vestuario" <?= $produto['categoria'] === 'vestuario' ? 'selected': '' ?>>Vestuário</option>
+            <option value="alimentos" <?= $produto['categoria'] === 'alimentos' ? 'selected': '' ?>>Alimento</option>
+            <option value="bebidas" <?= $produto['categoria'] === 'bebidas' ? 'selected': ''  ?>>Bebida</option>
+            <option value="limpeza" <?= $produto['categoria'] === 'limpeza'? 'selected': '' ?>>Limpeza</option>
+            <option value="casa e decoração" <?= $produto['categoria'] === 'casa e decoração' ? 'selected': '' ?>>Casa de Decoração</option>
+            <option value="papelaria" <?= $produto['categoria'] === 'papelaria' ? 'selected': '' ?>>Papelaria</option>
+            <option value="outros" <?= $produto['categoria'] === 'outros' ? 'selected': '' ?>>Outros</option>
 
         </select>
         <button type="submit">Atualizar Produto</button>

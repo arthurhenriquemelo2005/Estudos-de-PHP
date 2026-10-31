@@ -45,10 +45,7 @@ if (!$produto) {
 <body>
     <form action="atualizarProduto.php" method="POST">
 
-       
-
-
-        
+       <input type="hidden" name="id" value="<?= (int) $produto['id'] ?>">
       
         <h1>Editar Produto |  <?= htmlspecialchars($produto['nome']) ?></h1>
 
@@ -56,18 +53,18 @@ if (!$produto) {
         <input type="text" name="nome" value="<?= htmlspecialchars($produto['nome']) ?> " id="nome" placeholder="Nome do produto" required>
 
         <label for="preco">Preço do Produto</label>
-        <input type="text" name="preco" value="<?= htmlspecialchars($produto['preco']) ?>" id="preco" inputmode="numeric" placeholder="R$0,00" required>
+        <input type="text" name="preco" value="<?= htmlspecialchars($produto['preco']) ?>" id="preco" inputmode="decimal" placeholder="R$0,00" required>
 
         <label for="quantidade">Quantidade</label>
         <input type="number" name="quantidade" value="<?= htmlspecialchars($produto['quantidade']) ?>" id="quantidade" inputmode="numeric" placeholder="Exemplo: 1" required>
 
         <label for="categoria">Categoria</label>
 
-        <select name="categorias" id="categorias">
+        <select name="categoria" id="categoria">
 
             <option value="eletronico" <?= $produto['categoria'] === 'eletronico' ? 'selected': '' ?>>Eletrônico</option>
-            <option value="periferico" <?= $produto['categoria'] === 'periferico' ? 'selected' : '' ?> >>Periférico</option>
-            <option value="informatica"<?= $produto['categoria'] === 'informatica' ? 'selecetd': '' ?>>Informática</option>
+            <option value="periferico" <?= $produto['categoria'] === 'periferico' ? 'selected' : '' ?> >Periférico</option>
+            <option value="informatica"<?= $produto['categoria'] === 'informatica' ? 'selected': '' ?>>Informática</option>
             <option value="vestuario" <?= $produto['categoria'] === 'vestuario' ? 'selected': '' ?>>Vestuário</option>
             <option value="alimentos" <?= $produto['categoria'] === 'alimentos' ? 'selected': '' ?>>Alimento</option>
             <option value="bebidas" <?= $produto['categoria'] === 'bebidas' ? 'selected': ''  ?>>Bebida</option>

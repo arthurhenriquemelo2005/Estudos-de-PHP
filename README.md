@@ -1,72 +1,81 @@
 # 🐘 Estudos de PHP
 
-Repositório criado para registrar meus estudos, exercícios e práticas de **PHP** durante minha formação em **Desenvolvimento de Sistemas**.
+Repositório onde registro minha evolução em **PHP e desenvolvimento web** durante o curso técnico de **Desenvolvimento de Sistemas**: dos primeiros formulários até sistemas completos com login e banco de dados.
 
-O principal objetivo é **desenvolver meus conhecimentos em desenvolvimento web e entender como a web realmente funciona**, utilizando PHP para compreender como uma aplicação recebe, processa e responde aos dados enviados pelo usuário.
+---
 
-##  Estudos
+## 📚 Estudos
 
-Meus estudos de PHP são realizados principalmente através de:
+**Cursos**
+- Curso de PHP do **Gustavo Guanabara (Curso em Vídeo)**
+- Unidades curriculares do curso técnico de Desenvolvimento de Sistemas
 
-- **Curso de PHP — Gustavo Guanabara (Curso em Vídeo)**
-- **Unidade Curricular do curso técnico de Desenvolvimento de Sistemas**
+**Documentação**
+- [Manual oficial do PHP](https://www.php.net/manual/pt_BR/): referência de funções, sintaxe e boas práticas
+- [PHP: The Right Way](https://phptherightway.com/): guia de boas práticas da linguagem
 
-Os conteúdos estudados são praticados através de exercícios e pequenos projetos, buscando transformar a teoria em aplicações funcionais.
+---
 
-##  Objetivos
+## Projetos principais
 
-- Aprender PHP desde os fundamentos.
-- Desenvolver aplicações web utilizando PHP.
-- Entender o funcionamento do PHP no lado do servidor.
-- Aprender a criar e processar formulários.
-- Trabalhar com dados enviados pelo usuário.
-- Entender a comunicação entre HTML e PHP.
-- Praticar métodos como **GET** e **POST**.
-- Desenvolver páginas web com processamento dinâmico.
-- Evoluir gradualmente para aplicações web mais completas.
+- **[Assistência Técnica](./projeto1)**: CRUD de clientes, equipamentos, técnicos e serviços, com login e perfis de usuário.
+- **[EcoPoint](./projeto2)**: gerenciamento de participantes e agendamentos de coleta, com busca por status.
+- **[Pizzaria do BernaShow](./projeto3)**: clientes, pedidos e status de pedido, com acesso por perfil (`ADMIN` / `ATENDENTE`).
+- **[Locadora de filmes](./exSaep)**: filmes, clientes e empréstimos, rodando com **Docker**.
 
-## 🌐 Desenvolvimento Web
+Também há CRUDs menores (alunos e produtos), exercícios de fundamentos, uma **Pokédex** que consome a PokéAPI e um projeto com **Composer + Guzzle** para cotação de moedas.
 
-Durante os estudos, o foco está principalmente na utilização do PHP para desenvolvimento web.
+---
 
-Entre os principais conteúdos praticados estão:
+## O que já pratiquei
 
-- Criação de páginas dinâmicas.
-- Integração entre **HTML e PHP**.
-- Formulários HTML.
-- Recebimento e processamento de dados.
-- Uso de `$_GET` e `$_POST`.
-- Validação básica de dados.
-- Condições aplicadas ao desenvolvimento web.
-- Processamento de informações enviadas pelo usuário.
-- Comunicação entre cliente e servidor.
-- Execução do PHP através de um servidor web.
+- Formulários com `$_GET` e `$_POST`
+- Arrays, condicionais e laços de repetição
+- CRUD completo com MySQL e **PDO** (*prepared statements*)
+- Login com sessões, cookies e `password_hash`
+- Controle de acesso por perfil
+- Relacionamentos entre tabelas e `JOIN`
+- Consumo de APIs com cURL e Guzzle
+- Composer e Docker
+
+---
 
 ## 🛠️ Tecnologias
 
-- PHP
-- HTML
-- CSS
-- Apache
-- XAMPP
-- JAVASCRIPT
+PHP · MySQL · HTML · CSS · JavaScript · Bootstrap · Composer · Docker · XAMPP · Git
 
-##  Conteúdo do Repositório
+---
 
-Este repositório contém exercícios e práticas desenvolvidos durante os estudos de PHP, com foco principalmente em **desenvolvimento web e processamento de formulários**.
+## Como executar
 
-Os exercícios registram minha evolução no aprendizado da linguagem e na construção de aplicações que recebem, processam e apresentam informações dinamicamente.
+**Com XAMPP**
 
-##  Objetivo do Repositório
+1. Clone o repositório dentro de `htdocs`.
+2. Inicie o Apache e o MySQL.
+3. Crie o banco no phpMyAdmin e ajuste as credenciais no `conexao.php` do projeto.
+4. Acesse `http://localhost/Estudos-de-PHP/<projeto>`.
 
-Além de servir como material de estudo, este repositório funciona como um registro da minha evolução em **PHP e desenvolvimento web**.
+**Com Docker** (projeto `exSaep`)
 
-A ideia é compreender não apenas como escrever código, mas também **o que acontece quando um usuário acessa uma página, envia um formulário e os dados são processados pelo servidor**.
+```bash
+cd exSaep
+docker compose up --build
+```
 
-> **Estudar PHP, praticar desenvolvimento web e entender como a web realmente funciona.**
+Acesse `http://localhost:8080`.
+
+---
+
+## 🚧 Próximos passos
+
+- Adicionar os scripts SQL dos projetos
+- Usar variáveis de ambiente (`.env`) para credenciais
+- Estudar orientação a objetos e MVC
+- Criar um projeto com Laravel
+
+---
 
 ## 👨‍💻 Autor
 
-**Arthur Ribeiro**
-
-Estudante de Desenvolvimento de Sistemas.
+**Arthur Ribeiro**, estudante de Desenvolvimento de Sistemas
+[GitHub](https://github.com/arthurhenriquemelo2005)

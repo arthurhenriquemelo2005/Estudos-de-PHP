@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<h1>Imagem enviada com sucesso!</h1>";
 
                 // Mostra a imagem na tela
-                echo "<img src='$caminho' width='5  00'>";
+                echo "<img src='$caminho' width='500'>";
 
             } else {
 

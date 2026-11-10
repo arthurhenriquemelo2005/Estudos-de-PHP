@@ -89,7 +89,8 @@ O projeto utiliza o banco de dados relacional **MySQL**, composto por sete tabel
 
 O diagrama abaixo representa a estrutura do banco de dados do Doce Encanto, apresentando as sete entidades, seus atributos e os relacionamentos estabelecidos por meio de chaves primárias e estrangeiras.
 
-![Diagrama Entidade-Relacionamento do Doce Encanto](docs/der-doce-encanto.png)
+<img width="872" height="951" alt="Captura de tela 2026-11-10 154534" src="https://github.com/user-attachments/assets/9a5f7045-7005-4402-a620-b44f73322bcf" />
+
 
 ### Relacionamentos
 

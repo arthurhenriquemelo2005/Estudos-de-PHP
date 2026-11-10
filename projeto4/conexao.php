@@ -21,5 +21,6 @@
         echo "Erro de conexão" .$e ->getMessage();
     }
 
-    print "Conectado";
+    
+
 ?>

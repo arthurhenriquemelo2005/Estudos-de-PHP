@@ -112,37 +112,8 @@ O diagrama abaixo representa a estrutura do banco de dados do Doce Encanto, apre
 - Bootstrap — Construção da interface.
 - XAMPP — Ambiente de desenvolvimento local.
 
-## 📁 Estrutura do Projeto
 
-```text
-doce-encanto/
-│
-├── assets/
-│   ├── css/
-│   ├── js/
-│   └── imagens/
-│
-├── config/
-│   └── conexao.php
-│
-├── database/
-│   └── db_doceecanto.sql
-│
-├── docs/
-│   └── der-doce-encanto.png
-│
-├── clientes/
-├── encomendas/
-├── cupons/
-├── admin/
-│
-├── index.php
-└── README.md
-```
-
-*Estrutura prevista para organização dos arquivos durante o desenvolvimento.*
-
-## 🚀 Instalação
+## Instalação
 
 1. Instale o XAMPP.
 2. Inicie os serviços Apache e MySQL.
@@ -156,7 +127,7 @@ doce-encanto/
 http://localhost/doce-encanto/
 ```
 
-## 📚 Conceitos aplicados
+## Conceitos aplicados
 
 - Modelagem de banco de dados relacional.
 - Chaves primárias e estrangeiras.

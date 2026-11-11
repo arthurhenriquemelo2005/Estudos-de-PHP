@@ -261,34 +261,82 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encomenda realizada - Doce Encanto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/estilo-doce.css">
 </head>
 
 <body>
+    <div class="page-shell">
+        <div class="container">
+            <div class="doce-card p-4 p-lg-5">
+                <div class="text-center mb-4">
+                    <div class="doce-brand">Doce Encanto</div>
+                    <h1 class="title-doce mb-2">Encomenda cadastrada com sucesso!</h1>
+                    <span class="badge-doce badge-doce-pink">Status: aguardando</span>
+                </div>
 
-    <h1>Encomenda cadastrada com sucesso!</h1>
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-md-4">
+                        <p class="mb-1 text-doce-muted">Número da encomenda</p>
+                        <strong><?= (int) $idEncomenda ?></strong>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <p class="mb-1 text-doce-muted">Cliente</p>
+                        <strong><?= htmlspecialchars($cliente['nome']) ?></strong>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <p class="mb-1 text-doce-muted">Data de retirada</p>
+                        <strong><?= htmlspecialchars($dataRetirada) ?></strong>
+                    </div>
+                </div>
 
-    <p>Número da encomenda: <strong><?= (int) $idEncomenda ?></strong></p>
-    <p>Cliente: <?= htmlspecialchars($cliente['nome']) ?></p>
-    <p>Data de retirada: <?= htmlspecialchars($dataRetirada) ?></p>
+                <div class="summary-box mb-4">
+                    <h2 class="title-doce h4 mb-3">Resumo da encomenda</h2>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <p class="mb-1 text-doce-muted">Valor bruto</p>
+                            <strong>R$ <?= number_format($valorBruto, 2, ',', '.') ?></strong>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <p class="mb-1 text-doce-muted">Taxa de urgência</p>
+                            <strong>R$ <?= number_format($taxaUrgencia, 2, ',', '.') ?> (<?= $percentualUrgencia ?>%)</strong>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <p class="mb-1 text-doce-muted">Desconto</p>
+                            <strong>R$ <?= number_format($desconto, 2, ',', '.') ?></strong>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <p class="mb-1 text-doce-muted">Valor líquido</p>
+                            <strong class="fs-5">R$ <?= number_format($valorLiquido, 2, ',', '.') ?></strong>
+                        </div>
+                    </div>
+                </div>
 
-    <hr>
+                <div class="summary-box mb-4">
+                    <h2 class="title-doce h4 mb-3">Doce Pontos</h2>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <p class="mb-1 text-doce-muted">Pontos-base</p>
+                            <strong><?= $pontosBase ?></strong>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <p class="mb-1 text-doce-muted">Pontos bônus</p>
+                            <strong><?= $pontosBonus ?></strong>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <p class="mb-1 text-doce-muted">Total a receber</p>
+                            <strong><?= $pontosGerados ?></strong>
+                        </div>
+                    </div>
+                </div>
 
-    <h2>Resumo da encomenda</h2>
-    <p>Valor bruto: R$ <?= number_format($valorBruto, 2, ',', '.') ?></p>
-    <p>Taxa de urgência (<?= $percentualUrgencia ?>%): R$ <?= number_format($taxaUrgencia, 2, ',', '.') ?></p>
-    <p>Desconto: R$ <?= number_format($desconto, 2, ',', '.') ?></p>
-    <h3>Valor líquido: R$ <?= number_format($valorLiquido, 2, ',', '.') ?></h3>
-
-    <hr>
-
-    <h2>Doce Pontos</h2>
-    <p>Pontos-base: <?= $pontosBase ?></p>
-    <p>Pontos bônus: <?= $pontosBonus ?></p>
-    <p>Total a receber após confirmação do pagamento: <strong><?= $pontosGerados ?></strong></p>
-    <p>Status: aguardando</p>
-
-    <a href="painel.php">Voltar ao painel</a>
-
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="cadastrarEncomenda.php" class="btn btn-doce-secondary">Voltar ao painel de encomenda</a>
+                    <a href="listarEncomendas.php" class="btn btn-doce-primary">Ver Encomendas</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

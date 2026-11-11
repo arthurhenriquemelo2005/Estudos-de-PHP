@@ -141,7 +141,7 @@ http://localhost/doce-encanto/
 
 ## Status do Projeto
 
-🚧 Em desenvolvimento.
+✅ Finalizado
 
 ---
 

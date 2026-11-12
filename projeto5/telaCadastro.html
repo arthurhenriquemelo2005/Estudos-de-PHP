@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Cadastro</title>
+</head>
+<body>
+    
+    <form action="cadastrarAlunos.php" method="POST">
+
+        <h1>Cadastro de Alunos</h1>
+
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" maxlength="100" autocomplete="name" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" maxlength="150" autocomplete="email" required>
+
+        <label for="idade">Idade</label>
+        <input type="number" name="idade" id="idade" min="16" max="120" required>
+
+        <label for="curso">Cursos</label>
+        <select name="curso" id="curso" required>
+        
+            <option value="">Selecione</option>
+            <option value="Administração">Administração</option>
+            <option value="Informática">Informática</option>
+            <option value="Desenvolvimento de Sistemas">Desenvolvimento de Sistemas</option>
+            <option value="Enfermagem">Enfermagem</option>
+            <option value="Design Gráfico">Design Gráfico</option>
+            <option value="Engenharia">Engenharia</option>
+            <option value="Nutrição">Nutrição</option>
+            <option value="Fisioterapia">Fisioterapia</option>
+            <option value="Logística">Logística</option>
+            <option value="Estética">Estética</option>
+
+        </select>
+        
+     <input type="submit" value="Cadastrar">   
+    </form> 
+</body>
+</html>

@@ -41,7 +41,7 @@
                 <td><?= htmlspecialchars($produto['quantidade']) ?></td>
                 
                 <td>
-                    <a href="editarProdutos.php?id=<?= (int) $produto['id_produto'] ?>">Editar</a>
+                    <a href="editarProdutos.php?id_produto=<?= (int) $produto['id_produto'] ?>">Editar</a>
                     <?php endforeach ;?>
 
                     <form action="deletar.php" method="POST">

@@ -45,7 +45,7 @@
                     <?php endforeach ;?>
 
                     <form action="deletar.php" method="POST">
-                        <input type="hidden" name="id" value="<?= (int) $produto['id_produto'] ?>">
+                        <input type="hidden" name="id_produto" value="<?= (int) $produto['id_produto'] ?>">
                         <button onclick="return confirm('Deseja mesmo excluir?')">Deletar</button>
                     </form>
                 </td>

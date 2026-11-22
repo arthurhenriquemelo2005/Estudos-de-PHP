@@ -23,8 +23,9 @@ require_once(__DIR__ . '/../conexao.php');
 </head>
 
 <body>
-    <form action="atualizarProduto.php" method="POST">
+    <form action="atualizarProdutos.php" method="POST">
 
+    <input type="hidden" name="id_produto" value="<?= $produtos['id_produto'] ?>">
         <h1>Cadastrar Produtos</h1>
 
         <label for="nome">Nome do produto</label>
@@ -34,26 +35,26 @@ require_once(__DIR__ . '/../conexao.php');
 
         <label for="descricao">Descrição</label>
         <br><br>
-        <textarea name="descricao" id="descricao" placeholder="Descrição do produto"></textarea>
+        <textarea name="descricao" id="descricao" placeholder="Descrição do produto"><?= htmlspecialchars($produtos['descricao']) ?></textarea>
 
         <br><br>
 
         <label for="preco">Preço</label>
-        <input type="number" name="preco" id="preco" placeholder="R$ 00,00" required>
+        <input type="number" name="preco" id="preco" placeholder="R$ 00,00" value="<?= htmlspecialchars($produtos['preco']) ?>" required>
 
         <br><br>
 
         <label for="quantidade">Quantidade</label>
-        <input type="number" name="quantidade" id="preco" placeholder="Quantidade de produto" required>
+        <input type="number" name="quantidade" id="preco" placeholder="Quantidade de produto" value="<?= htmlspecialchars($produtos['quantidade']) ?>" required>
 
         <br><br>
 
         <label for="id_categoria">Categoria:</label>
-        <select name="id_categoria" required>
+        <select name="id_categoria"  required>
             <option value="">Selecione uma categoria</option>
-            <option value="2">Periféricos</option>
-            <option value="4">Móveis</option>
-            <option value="5">Informática</option>
+            <option value="2" <?= htmlspecialchars($produtos['id_categoria']) == 2 ? 'selected': '' ?>>Periféricos</option>
+            <option value="4" <?= htmlspecialchars($produtos['id_categoria']) == 4 ? 'selected': '' ?>>Móveis</option>
+            <option value="5" <?= htmlspecialchars($produtos['id_categoria']) == 5 ? 'selected': '' ?>>Informática</option>
         </select>
 
         </select>
@@ -63,6 +64,10 @@ require_once(__DIR__ . '/../conexao.php');
         <button type="submit">Editar produto</button>
 
     </form>
+    
+    <br><br>
+    
+    <a href="verProdutos.php">Ver Produtos</a>
 
 </body>
 
